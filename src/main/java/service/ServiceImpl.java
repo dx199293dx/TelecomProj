@@ -6,15 +6,22 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import beans.Employee;
+import dao.CustomerDAO;
 import dao.EmployeeDAO;
 
 
 public class ServiceImpl implements Service {
 	private EmployeeDAO employeeDao;
+	private CustomerDAO customerDao;
 
 	public void setEmployeeDao(EmployeeDAO employeeDao) {
 		this.employeeDao = employeeDao;
 	}
+
+	public void setCustomerDao(CustomerDAO customerDao) {
+		this.customerDao = customerDao;
+	}
+
 
 	@Override
 	@Transactional

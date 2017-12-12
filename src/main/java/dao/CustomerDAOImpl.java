@@ -5,12 +5,9 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import beans.Employee;
+import beans.Customer;
 
-
-
-public class EmployeeDAOImpl implements EmployeeDAO {
-	
+public class CustomerDAOImpl implements CustomerDAO {
 	private SessionFactory sessionFactory;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -18,18 +15,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public void addEmployee(Employee s) {
+	public void addCusteomer(Customer c) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		session.persist(s);
+		session.persist(c);
 	}
 
 	@Override
-	public List<Employee> getEmployeeList() {
+	public List<Customer> getCustomerList() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		List<Employee> employeeList = session.createQuery("from Employee").list();
-		return employeeList;
+		List<Customer> customerList = session.createQuery("from Customer").list();
+		return customerList;
 	}
 
 }

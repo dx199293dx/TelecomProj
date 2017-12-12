@@ -6,6 +6,6 @@ import beans.Employee;
 
 
 public interface EmployeeDAO{
-	public void addStudent(Employee s);
+	public void addEmployee(Employee s);
 	public List<Employee> getEmployeeList();
 }
