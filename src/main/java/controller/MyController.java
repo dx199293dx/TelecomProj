@@ -20,13 +20,13 @@ public class MyController {
 	public void setMyService(Service myService) {
 		this.myService = myService;
 	}
-	@RequestMapping(value="/login")
+	@RequestMapping(value="/adminLogin")
 	public ModelAndView studentLogin(@RequestParam("userID") String userID,@RequestParam("password") String password){
 		Employee e = myService.employeeLogin(userID, password);
 		if(e.getId()==0) {
 			return new ModelAndView("error");
 		}else {
-			return new ModelAndView("homepage","employee",e);
+			return new ModelAndView("adminHomepage","employee",e);
 		}
 	}
 //	@RequestMapping(value="/register")
