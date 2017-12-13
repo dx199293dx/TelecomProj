@@ -5,10 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Admin Homepage</title>
+<title>Create New Service</title>
 </head>
 <body>
-	<label>Employee ID: </label><div><c:out value="${employee.id}" /></div>
+<select class="phone">
+	<c:forEach var="plan" items="${planList}">
+		<option value="${plan.id}">${plan.name}</option>
+	</c:forEach>  
+</select>
+	<%-- <label>Employee ID: </label><div><c:out value="${employee.id}" /></div>
 	<label>Employee Name: </label><div><c:out value="${employee.name}" /></div>
 	<form action="adminSelection.spring">
 		<button type="submit" name="addEmployee">Add an Employee as Admin</button>
@@ -18,6 +23,6 @@
 	</form>
 	<form action="adminLogin.jsp">
 	<button type="submit" name="adminLogout">Click to Logout</button>
-	</form>
+	</form> --%>
 </body>
 </html>

@@ -6,13 +6,16 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import beans.Employee;
+import beans.Plan;
 import dao.CustomerDAO;
 import dao.EmployeeDAO;
+import dao.PlanDAO;
 
 
 public class ServiceImpl implements Service {
 	private EmployeeDAO employeeDao;
 	private CustomerDAO customerDao;
+	private PlanDAO planDao;
 
 	public void setEmployeeDao(EmployeeDAO employeeDao) {
 		this.employeeDao = employeeDao;
@@ -22,6 +25,9 @@ public class ServiceImpl implements Service {
 		this.customerDao = customerDao;
 	}
 
+	public void setPlanDao(PlanDAO planDao) {
+		this.planDao = planDao;
+	}
 
 	@Override
 	@Transactional
@@ -29,7 +35,6 @@ public class ServiceImpl implements Service {
 		// TODO Auto-generated method stub
 		return employeeDao.getEmployeeList();
 	}
-
 
 	@Override
 	@Transactional
@@ -42,5 +47,12 @@ public class ServiceImpl implements Service {
 		}
 		return new Employee();
 	}
+	
+	@Override
+	@Transactional
+	public List<Plan> getPlanList(){
+		return planDao.getPlanList();
+	}
+	
 
 }

@@ -21,7 +21,7 @@ public class MyController {
 		this.myService = myService;
 	}
 	@RequestMapping(value="/adminLogin")
-	public ModelAndView studentLogin(@RequestParam("userID") String userID,@RequestParam("password") String password){
+	public ModelAndView employeeLogin(@RequestParam("userID") String userID,@RequestParam("password") String password){
 		Employee e = myService.employeeLogin(userID, password);
 		if(e.getId()==0) {
 			return new ModelAndView("error");
@@ -29,11 +29,10 @@ public class MyController {
 			return new ModelAndView("adminHomepage","employee",e);
 		}
 	}
-//	@RequestMapping(value="/register")
-//	public ModelAndView studentRegistration(@ModelAttribute("student") Employee s) {
-//		myService.addStudent(s);
-//		return new ModelAndView("homepage","student",s);
-//	}
-//
-//	
+	@RequestMapping(value="/adminSelection",params="createNewCustomer")
+	public ModelAndView createNewService() {
+		return new ModelAndView("createNewService","planList",myService.getPlanList());
+		
+	}
+	
 }
