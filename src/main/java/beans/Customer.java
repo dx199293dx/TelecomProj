@@ -1,5 +1,7 @@
 package beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="customer")
-public class Customer {
+public class Customer implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -25,12 +27,14 @@ public class Customer {
 	private String state;
 	private String zip;
 	private String password;
+	private String servicenumber;
 	
 	
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Customer(int id, String userID, String firstName, String lastName, String email, String phone, String ssn,
 			String dob, String street, String city, String state, String zip, String password) {
 		super();
@@ -125,6 +129,14 @@ public class Customer {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getServicenumber() {
+		return servicenumber;
+	}
+
+	public void setServicenumber(String servicenumber) {
+		this.servicenumber = servicenumber;
 	}
 	
 }

@@ -15,10 +15,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public void addCusteomer(Customer c) {
+	public int addCusteomer(Customer c) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		session.persist(c);
+		int id = (int) session.save(c);
+		return id;
 	}
 
 	@Override

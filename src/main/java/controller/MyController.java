@@ -2,11 +2,13 @@ package controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import beans.CustomerPlan;
 import beans.Employee;
 import service.Service;
 
@@ -30,9 +32,18 @@ public class MyController {
 		}
 	}
 	@RequestMapping(value="/adminSelection",params="createNewCustomer")
-	public ModelAndView createNewService() {
+	public ModelAndView adminSeletion() {
 		return new ModelAndView("createNewService","planList",myService.getPlanList());
 		
 	}
 	
+	@RequestMapping(value="/createNew")
+	public String createNew(@ModelAttribute CustomerPlan cp) {
+		myService.addCustomerPlan(cp);
+		return "success";
+	}
+	@ModelAttribute("newCP")
+	public CustomerPlan createCustomerPlanModel() {
+		return new CustomerPlan();	
+	}
 }
