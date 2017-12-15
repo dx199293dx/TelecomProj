@@ -13,10 +13,10 @@
 	<form action="adminSelection.spring" method="post">
 		<button type="submit" name="submit" value="addEmployee">Add an Employee as Admin</button>
 		<button type="submit" name="submit" value="createNewCustomer">Create New Service</button>
-		<button type="submit" name="viewCustomers">View All Customer Details</button>
+		<button type="submit" name="submit" value="viewCustomers">View All Customer Details</button>
 		<button type="submit" name="viewIssues">View All Issues</button>
 	</form>
-	<form action="adminLogin.jsp">
+	<form action="adminLogout.spring">
 	<button type="submit" name="adminLogout">Click to Logout</button>
 	</form>
 </body>

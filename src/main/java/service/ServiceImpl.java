@@ -62,7 +62,6 @@ public class ServiceImpl implements Service {
 	public Employee employeeLogin(String userID, String password) {
 		// TODO Auto-generated method stub
 		ArrayList<Employee> list = (ArrayList<Employee>) employeeDao.getEmployeeList();
-		System.out.println("here");
 		for(Employee e : list) {
 			if(e.getUserID().equals(userID) && e.getPassword().equals(password))
 				return e;
@@ -88,6 +87,34 @@ public class ServiceImpl implements Service {
 		cp.setCid(cid);
 		cpDao.addCustomerPlan(cp);
 	}
-	
+
+	@Override
+	@Transactional
+	public List<Customer> getCustomerList() {
+		// TODO Auto-generated method stub
+		return customerDao.getCustomerList();
+	}
+
+	@Override
+	@Transactional
+	public void addEmployee(Employee e) {
+		// TODO Auto-generated method stub
+		employeeDao.addEmployee(e);
+
+	}
+
+	@Override
+	public List getCustomerListByNumber(String servicenumber, List<Customer> list) {
+		// TODO Auto-generated method stub
+		ArrayList<Customer> newList = new ArrayList<>();
+		for(Customer c : list) {
+			if(c.getServicenumber().equals(servicenumber)) {
+				newList.add(c);
+			}
+		}
+		return newList;
+	}
+
+
 
 }

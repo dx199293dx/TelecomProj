@@ -9,7 +9,7 @@
 <title>Create New Service</title>
 </head>
 <body>
-<form:form name="createNew" method="post" action="createNew.spring" modelAttribute="newCP">
+<form:form name="createNew" method="post" action="createNewCP.spring" modelAttribute="newCP">
 <%-- <select class="phone">
 	<c:forEach var="plan" items="${planList}">
 		<option value="${plan.id}">${plan.name}</option>
@@ -24,6 +24,7 @@
 <label>Number:</label><div><form:input type="text" path="number"/></div>
 <button type="submit" name="create">create</button>
 </form:form>
+<a href="rtAdminHP.spring">return</a>
 	<%-- <label>Employee ID: </label><div><c:out value="${employee.id}" /></div>
 	<label>Employee Name: </label><div><c:out value="${employee.name}" /></div>
 	<form action="adminSelection.spring">

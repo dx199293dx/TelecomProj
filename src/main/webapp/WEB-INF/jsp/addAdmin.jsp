@@ -7,6 +7,6 @@
 <label>Password:</label><div><input type="password" name="password"></div>
 <button type="submit" name="adminReg">Submit</button>
 </form:form>
-<a href="adminHomepage.jsp">return</a>
+<a href="rtAdminHP.spring">return</a>
 </body>
 </html>
