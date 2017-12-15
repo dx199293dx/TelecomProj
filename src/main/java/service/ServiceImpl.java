@@ -18,16 +18,22 @@ import intf.PlanDAO;
 import intf.Service;
 
 
+
 public class ServiceImpl implements Service {
 	private EmployeeDAO employeeDao;
 	private CustomerDAO customerDao;
 	private PlanDAO planDao;
 	private CustomerPlanDAO cpDao; 
 	private CardInfoDAO ciDao; 
-	private IssueDAO iDao; 
+	private IssueDAO issueDao; 
 
-	public void setiDao(IssueDAO iDao) {
-		this.iDao = iDao;
+
+	public IssueDAO getIssueDao() {
+		return issueDao;
+	}
+
+	public void setIssueDao(IssueDAO issueDao) {
+		this.issueDao = issueDao;
 	}
 
 	public void setCiDao(CardInfoDAO ciDao) {

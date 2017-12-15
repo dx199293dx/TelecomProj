@@ -29,13 +29,14 @@ import intf.Service;
 public class MyController {
 	@Autowired
 	private Service myService;
-	@Autowired
-	private Validator validator;
-
-	@InitBinder("employee")
-	private void initBinder(WebDataBinder binder) {
-		binder.setValidator(validator);
-	}
+//	@Autowired
+//	@Qualifier("employeeValidator")
+//	private Validator validator;
+//
+//	@InitBinder("employee")
+//	private void initBinder(WebDataBinder binder) {
+//		binder.setValidator(validator);
+//	}
 	@RequestMapping(value="/adminLogin")
 	public ModelAndView employeeLogin(@RequestParam("userID") String userID,@RequestParam("password") String password, 
 			HttpServletRequest request){
@@ -61,7 +62,7 @@ public class MyController {
 			model.addAttribute("newCP",new CustomerPlan());
 			return new ModelAndView("createNewService","planList",myService.getPlanList());
 		}else if(submit.equals("addEmployee")) {
-			model.addAttribute("employee", new Employee());
+			model.addAttribute("newAdmin", new Employee());
 			return new ModelAndView("addAdmin");
 		}else if(submit.equals("viewCustomers")) {
 			request.getSession().setAttribute("customerList", myService.getCustomerList());
@@ -70,7 +71,7 @@ public class MyController {
 		return null;
 	}
 	@RequestMapping(value="/adminReg",method=RequestMethod.POST)
-	public ModelAndView employeeReg(@Validated Employee e,BindingResult bindingResult){
+	public ModelAndView employeeReg(@ModelAttribute("newAdmin") @Validated Employee e, BindingResult bindingResult){
 		if(bindingResult.hasErrors()) {
 			return new ModelAndView("addAdmin");
 		}else{

@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="employee")
@@ -13,8 +16,12 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+//	@Size(min=2, max=30)
+	@NotBlank
 	private String name;
+	@NotBlank
 	private String userID;
+	@NotBlank
 	private String password;
 	
 	public Employee() {

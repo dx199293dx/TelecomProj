@@ -20,7 +20,8 @@ public class EmployeeValidator implements Validator {
 	public void validate(Object obj, Errors errors) {
 		// TODO Auto-generated method stub
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "name.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userID", "userid.required");
+//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userID", "userid.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.required");
 	}
 
 }

@@ -1,6 +1,0 @@
-controller/MyController.class
-dao/StudentDAOImpl.class
-service/StudentServiceImpl.class
-dao/StudentDAO.class
-beans/Student.class
-service/StudentService.class
