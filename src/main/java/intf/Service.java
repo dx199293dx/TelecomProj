@@ -1,4 +1,4 @@
-package service;
+package intf;
 
 import java.util.List;
 

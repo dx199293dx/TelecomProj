@@ -1,4 +1,4 @@
-package dao;
+package intf;
 
 import java.util.List;
 

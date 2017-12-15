@@ -1,4 +1,4 @@
-package dao;
+package intf;
 
 import beans.CustomerPlan;
 

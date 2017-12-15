@@ -9,10 +9,13 @@ import beans.Customer;
 import beans.CustomerPlan;
 import beans.Employee;
 import beans.Plan;
-import dao.CustomerDAO;
-import dao.CustomerPlanDAO;
-import dao.EmployeeDAO;
-import dao.PlanDAO;
+import intf.CardInfoDAO;
+import intf.CustomerDAO;
+import intf.CustomerPlanDAO;
+import intf.EmployeeDAO;
+import intf.IssueDAO;
+import intf.PlanDAO;
+import intf.Service;
 
 
 public class ServiceImpl implements Service {
@@ -20,6 +23,16 @@ public class ServiceImpl implements Service {
 	private CustomerDAO customerDao;
 	private PlanDAO planDao;
 	private CustomerPlanDAO cpDao; 
+	private CardInfoDAO ciDao; 
+	private IssueDAO iDao; 
+
+	public void setiDao(IssueDAO iDao) {
+		this.iDao = iDao;
+	}
+
+	public void setCiDao(CardInfoDAO ciDao) {
+		this.ciDao = ciDao;
+	}
 
 	public void setCpDao(CustomerPlanDAO cpDao) {
 		this.cpDao = cpDao;
@@ -49,6 +62,7 @@ public class ServiceImpl implements Service {
 	public Employee employeeLogin(String userID, String password) {
 		// TODO Auto-generated method stub
 		ArrayList<Employee> list = (ArrayList<Employee>) employeeDao.getEmployeeList();
+		System.out.println("here");
 		for(Employee e : list) {
 			if(e.getUserID().equals(userID) && e.getPassword().equals(password))
 				return e;

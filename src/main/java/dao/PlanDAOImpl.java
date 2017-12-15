@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import beans.Plan;
+import intf.PlanDAO;
 
 public class PlanDAOImpl implements PlanDAO {
 	

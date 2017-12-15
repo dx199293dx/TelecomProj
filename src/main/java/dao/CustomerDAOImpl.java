@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import beans.Customer;
+import intf.CustomerDAO;
 
 public class CustomerDAOImpl implements CustomerDAO {
 	private SessionFactory sessionFactory;

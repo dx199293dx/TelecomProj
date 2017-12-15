@@ -5,13 +5,11 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import beans.Employee;
-import intf.EmployeeDAO;
+import beans.CardInfo;
+import intf.CardInfoDAO;
 
+public class CardInfoDAOImpl implements CardInfoDAO {
 
-
-public class EmployeeDAOImpl implements EmployeeDAO {
-	
 	private SessionFactory sessionFactory;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -19,18 +17,19 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public void addEmployee(Employee s) {
+	public int addCardInfo(CardInfo ci) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		session.persist(s);
+		int id = (int) session.save(ci);
+		return id;
 	}
 
 	@Override
-	public List<Employee> getEmployeeList() {
+	public List<CardInfo> getCardInfoList() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		List<Employee> employeeList = session.createQuery("from Employee").list();
-		return employeeList;
+		List<CardInfo> cardInfoList = session.createQuery("from CardInfo").list();
+		return cardInfoList;
 	}
 
 }

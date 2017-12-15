@@ -9,7 +9,7 @@
 <title>Create New Service</title>
 </head>
 <body>
-<form:form name="createNew" method="post" action="createNew.spring" modelAttribute="newCP" >
+<form:form name="createNew" method="post" action="createNew.spring" modelAttribute="newCP">
 <%-- <select class="phone">
 	<c:forEach var="plan" items="${planList}">
 		<option value="${plan.id}">${plan.name}</option>

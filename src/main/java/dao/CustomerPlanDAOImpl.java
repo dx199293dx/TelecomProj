@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import beans.CustomerPlan;
+import intf.CustomerPlanDAO;
 
 public class CustomerPlanDAOImpl implements CustomerPlanDAO {
 

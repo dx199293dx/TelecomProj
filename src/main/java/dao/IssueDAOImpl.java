@@ -5,32 +5,37 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import beans.Employee;
-import intf.EmployeeDAO;
+import beans.Issue;
+import intf.IssueDAO;
 
+public class IssueDAOImpl implements IssueDAO {
 
-
-public class EmployeeDAOImpl implements EmployeeDAO {
-	
 	private SessionFactory sessionFactory;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
 	@Override
-	public void addEmployee(Employee s) {
+	public int addIssue(Issue i) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		session.persist(s);
+		int id = (int) session.save(i);
+		return id;
 	}
 
 	@Override
-	public List<Employee> getEmployeeList() {
+	public void updateIssue(Issue i) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		List<Employee> employeeList = session.createQuery("from Employee").list();
-		return employeeList;
+		session.saveOrUpdate(i);
+	}
+
+	@Override
+	public List<Issue> getIssueList() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		List<Issue> issueList = session.createQuery("from Issue").list();
+		return issueList;
 	}
 
 }
