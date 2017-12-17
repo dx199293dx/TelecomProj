@@ -101,7 +101,7 @@
   <label class="col-md-4 control-label">Issue ID</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <input  name="id" value="${issue.id}" class="form-control"  type="text" readonly/>
+  <input name="id" value="${issue.id}" class="form-control"  type="text" readonly/>
     </div>
   </div>
 
@@ -111,7 +111,7 @@
   <label class="col-md-4 control-label">Customer Name</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <input  name="name" value="${issue.customerName}" class="form-control"  type="text" readonly/>
+  <input name="customerName" value="${issue.customerName}" class="form-control"  type="text" readonly/>
     </div>
   </div>
 
@@ -121,7 +121,7 @@
   <label class="col-md-4 control-label">Type</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <input  name="type" value="${issue.type}" class="form-control"  type="text" readonly/> 
+  <input name="type" value="${issue.type}" class="form-control"  type="text" readonly/> 
   </div>
   </div>
 
@@ -141,11 +141,11 @@
     <div class="col-md-4 selectContainer">
     <div class="input-group">
     <form:select path="status" name="status" class="form-control selectpicker">
-      <form:option value="${issue.status}">${issue.status}</form:option>
+      <form:option value="${issue.status}">------My Status: ${issue.status}------</form:option>
+      <form:option value="New">New</form:option>
       <form:option value="Confirmed">Confirmed</form:option>
 	  <form:option value="Resolved">Resolved</form:option>
 	  <form:option value="Closed">Closed</form:option>
-
     </form:select>
   </div>
 </div>
@@ -168,7 +168,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4"><br>
-    <center><button type="submit" class="btn btn-warning" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
+    <center><button type="submit" name="submit" value="modify" class="btn btn-warning" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
     <button type=submit name="submit" value="return" class="btn btn-warning" >RETURN</button>
     </center>
   </div>

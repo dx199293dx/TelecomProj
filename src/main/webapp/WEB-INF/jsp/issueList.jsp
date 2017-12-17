@@ -102,8 +102,8 @@
 						</div>
 					</div>
 					<div class="panel-body">
-					<form id="customer_filter" action="customerFilter.spring" method="post" >
-						<input type="text" class="form-control" id="dev-table-filter"  name="servicenumber" placeholder="Filter Customer By Service Number" />
+					<form id="customer_filter" action="issueFilter.spring" method="post" >
+						<input type="text" class="form-control" id="dev-table-filter"  name="name" placeholder="Filter Issue By Name" />
 						<button class="btn btn-warning" type="submit" name="submit" value="All" style="width: 100px;float:right;">View ALL</button>
 						<button class="btn btn-warning" type="submit" name="submit" value="Search" style="width: 100px;float:right;">Search</button>						
 					</form>
@@ -128,7 +128,7 @@
 								<td>${issue.customerName}</td>
 								<td>${issue.status}</td>
 								<td><form action="viewIssueDeatils.spring" method="post">
-										<button type="submit" name="submit" value="${issue.id}" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span> Details</button>
+										<button type="submit" name="submit" value="${issue.id}" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>Details</button>
 		    							</form></td>
 							</tr>
 						</c:forEach>

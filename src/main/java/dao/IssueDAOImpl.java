@@ -38,4 +38,10 @@ public class IssueDAOImpl implements IssueDAO {
 		return issueList;
 	}
 
+	@Override
+	public Issue getIssue(int id) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		return (Issue) session.get(Issue.class, id);
+	}
 }

@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import beans.CustomerPlan;
 import beans.Employee;
+import beans.Issue;
 import beans.Issue_CustomerName;
 import intf.Service;
 
@@ -79,7 +80,7 @@ public class MyController {
 	}
 	@RequestMapping(value="viewIssueDeatils",method=RequestMethod.POST)
 	public ModelAndView viewIssueDeatils(HttpServletRequest request){
-		return new ModelAndView("issueDetails","issue",myService.getIssueByID(request.getParameter("submit"),(List<Issue_CustomerName>)request.getSession().getAttribute("issueList")));
+		return new ModelAndView("issueDetails","issue",myService.getIssueByID(request.getParameter("submit"), (List<Issue_CustomerName>)request.getSession().getAttribute("issueList")));
 		
 	}
 	@RequestMapping(value="/adminReg",method=RequestMethod.POST)
@@ -99,7 +100,7 @@ public class MyController {
 	}
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/customerFilter", method=RequestMethod.POST)
-	public String doFilter(@RequestParam("servicenumber") String servicenumber,HttpServletRequest request) {
+	public String doCustomerFilter(@RequestParam("servicenumber") String servicenumber,HttpServletRequest request) {
 		String submit = request.getParameter("submit");
 		if(submit.equals("Search") && !servicenumber.equals("")) {
 			request.getSession().setAttribute("customerList", myService.getCustomerListByNumber(servicenumber,(List)
@@ -109,6 +110,28 @@ public class MyController {
 			request.getSession().setAttribute("customerList", myService.getCustomerList());
 		}
 		return "customerList";
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="/issueFilter", method=RequestMethod.POST)
+	public String doIssueFilter(@RequestParam("name") String name,HttpServletRequest request) {
+		String submit = request.getParameter("submit");
+		if(submit.equals("Search") && !name.equals("")) {
+			request.getSession().setAttribute("issueList", myService.getIssueListByName(name,(List)
+					request.getSession().getAttribute("issueList")));
+		}
+		else if(submit.equals("All")) {
+			request.getSession().setAttribute("issueList", myService.getIssueList());
+		}
+		return "issueList";
+	}
+	@RequestMapping(value="modifyStatus", method=RequestMethod.POST)
+	public ModelAndView modifyStatus(@ModelAttribute Issue_CustomerName issue, HttpServletRequest request) {
+		String submit = request.getParameter("submit");
+		if(submit.equals("modify")) {
+			request.getSession().setAttribute("issueList", myService.modifyStatus(issue));			
+		}
+		return new ModelAndView("issueList");
 	}
 	@RequestMapping(value="/rtAdminHP")
 	public ModelAndView returnToAdminHomePage(HttpServletRequest request) {

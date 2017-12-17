@@ -32,7 +32,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public Customer getCustemer(int id) {
+	public Customer getCustomer(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		return (Customer) session.get(Customer.class, id);

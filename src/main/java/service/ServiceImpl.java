@@ -127,7 +127,7 @@ public class ServiceImpl implements Service {
 	@Transactional
 	public List<Issue_CustomerName> getIssueList() {
 		// TODO Auto-generated method stub
-		ArrayList<Issue> issueList = (ArrayList<Issue>) issueDao.getIssueList();
+		ArrayList<Issue> issueList = (ArrayList<Issue>)issueDao.getIssueList() ;
 		ArrayList<Issue_CustomerName> list = new ArrayList<>(); 
 		for(Issue i : issueList) {
 			Issue_CustomerName issue = new Issue_CustomerName();
@@ -136,7 +136,7 @@ public class ServiceImpl implements Service {
 			issue.setSubType(i.getSubType());
 			issue.setDetails(i.getDetails());
 			issue.setStatus(i.getStatus());
-			Customer c = customerDao.getCustemer(i.getCid());
+			Customer c = customerDao.getCustomer(i.getCid());
 			issue.setCustomerName(c.getFirstName()+" " + c.getLastName());
 			list.add(issue);
 		}
@@ -144,6 +144,7 @@ public class ServiceImpl implements Service {
 	}
 
 	@Override
+	@Transactional
 	public Issue_CustomerName getIssueByID(String id, List<Issue_CustomerName> issueList) {
 		// TODO Auto-generated method stub
 		for(Issue_CustomerName issue : issueList) {
@@ -152,6 +153,31 @@ public class ServiceImpl implements Service {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	@Transactional
+	public List<Issue_CustomerName> modifyStatus(Issue_CustomerName issue) {
+		// TODO Auto-generated method stub
+		int id = issue.getId();
+		Issue i = issueDao.getIssue(id);
+		i.setStatus(issue.getStatus());
+		issueDao.updateIssue(i);
+		List<Issue_CustomerName> list = new ArrayList<>();
+		list.add(issue);
+		return list;
+	}
+
+	@Override
+	public List<Issue_CustomerName> getIssueListByName(String name, List<Issue_CustomerName> list) {
+		// TODO Auto-generated method stub
+		ArrayList<Issue_CustomerName> newList = new ArrayList<>();
+		for(Issue_CustomerName i : list) {
+			if(i.getCustomerName().toLowerCase().equals(name.toLowerCase())) {
+				newList.add(i);
+			}
+		}
+		return newList;
 	}
 
 
