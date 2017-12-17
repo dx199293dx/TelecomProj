@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/mvc  
+     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<mvc:annotation-driven/>
+	<context:component-scan	base-package="controller" />
+		
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<mvc:resources mapping="/resources/**" location="/resources/"
+	cache-period="1200"/>
+<!-- 	<context:property-placeholder location="classpath/resources:message_en.properties"/> -->
+<!-- 	<resources mapping="/resources/**" location="/resources/" /> -->
+	<!-- <beans:bean id="employeeValidator" class="validator.EmployeeValidator" /> -->
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<beans:property name="basename" value="classpath:message" />
+		<beans:property name="defaultEncoding" value="UTF-8" />
+	</beans:bean>
+
+	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+	<property  name="driverClassName" ><value>com.mysql.jdbc.Driver</value></property>
+	<property  name="url" ><value>jdbc:mysql://localhost:3306/TelecomProj</value></property>
+	<property  name="username"><value>root</value></property>
+	<property  name="password"><value></value></property>
+   </bean>
+	
+	<bean id="mySessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="datasource"></property>
+    <property name="annotatedClasses">
+    <list>
+    <value>beans.Employee</value>
+    <value>beans.Customer</value>
+    <value>beans.Plan</value>
+    <value>beans.CustomerPlan</value>
+    <value>beans.CardInfo</value>
+    <value>beans.Issue</value>
+    </list>
+    </property>
+	    <property name="hibernateProperties">
+	    <props>
+	    <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+	    <prop key="show_sql">true</prop>
+	    <prop key="hibernate.hbm2ddl.auto">update</prop>
+		</props>  
+	    </property>
+    </bean>
+    
+    <bean id="employeeDao" class="dao.EmployeeDAOImpl">
+     <property name="sessionFactory" ref="mySessionFactory"></property>  
+    </bean>
+    
+    <bean id="customerDao" class="dao.CustomerDAOImpl">
+     <property name="sessionFactory" ref="mySessionFactory"></property>  
+    </bean>
+    
+    <bean id="planDao" class="dao.PlanDAOImpl">
+     <property name="sessionFactory" ref="mySessionFactory"></property>  
+    </bean>
+    <bean id="customerPlanDao" class="dao.CustomerPlanDAOImpl">
+     <property name="sessionFactory" ref="mySessionFactory"></property>  
+    </bean>
+    <bean id="cardInfoDao" class="dao.CardInfoDAOImpl">
+     <property name="sessionFactory" ref="mySessionFactory"></property>  
+    </bean>
+    <bean id="issueDao" class="dao.IssueDAOImpl">
+     <property name="sessionFactory" ref="mySessionFactory"></property>  
+    </bean>
+    
+     <bean id="service" class="service.ServiceImpl">
+     <property name="employeeDao" ref="employeeDao"></property>
+     <property name="customerDao" ref="customerDao"></property>
+     <property name="planDao" ref="planDao"></property>
+     <property name="cpDao" ref="customerPlanDao"></property>
+     <property name="ciDao" ref="cardInfoDao"></property>
+      <property name="issueDao" ref="issueDao"></property>
+     </bean>
+     <tx:annotation-driven transaction-manager="transactionManager" />
+     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+     <property name="sessionFactory" ref="mySessionFactory"></property>
+     </bean>
+</beans>
+
+
+
+
+

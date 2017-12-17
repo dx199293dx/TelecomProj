@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import beans.CustomerPlan;
 import beans.Employee;
+import beans.Issue_CustomerName;
 import intf.Service;
 
 
@@ -54,21 +55,32 @@ public class MyController {
 		request.getSession().setAttribute("employee", null);
 		return new ModelAndView("adminLogin");
 	}
-	@RequestMapping(value="/adminSelection",method=RequestMethod.POST)
-	public ModelAndView adminSeletion(HttpServletRequest request, Model model) {
-		String submit = request.getParameter("submit");
-		System.out.println(submit);
-		if(submit.equals("createNewCustomer")) {
-			model.addAttribute("newCP",new CustomerPlan());
-			return new ModelAndView("createNewService","planList",myService.getPlanList());
-		}else if(submit.equals("addEmployee")) {
-			model.addAttribute("newAdmin", new Employee());
-			return new ModelAndView("addAdmin");
-		}else if(submit.equals("viewCustomers")) {
-			request.getSession().setAttribute("customerList", myService.getCustomerList());
-			return new ModelAndView("customerList");
-		}
-		return null;
+	@RequestMapping(value="/addEmployee")
+	public ModelAndView addEmployee(Model model) {
+		model.addAttribute("newAdmin", new Employee());
+		return new ModelAndView("addAdmin");
+	}
+	@RequestMapping(value="/createNewCustomer")
+	public ModelAndView createNewCustomer(Model model) {
+		model.addAttribute("newCP",new CustomerPlan());
+		return new ModelAndView("createNewService","planList", myService.getPlanList());
+	}
+	@RequestMapping(value="/viewCustomers")
+	public ModelAndView viewCustomers(HttpServletRequest request, Model model) {
+		request.getSession().setAttribute("customerList", myService.getCustomerList());
+		return new ModelAndView("customerList");
+
+	}
+	@RequestMapping(value="/viewIssues")
+	public ModelAndView viewIssues(HttpServletRequest request, Model model) {
+		request.getSession().setAttribute("issueList", myService.getIssueList());
+		return new ModelAndView("issueList");
+
+	}
+	@RequestMapping(value="viewIssueDeatils",method=RequestMethod.POST)
+	public ModelAndView viewIssueDeatils(HttpServletRequest request){
+		return new ModelAndView("issueDetails","issue",myService.getIssueByID(request.getParameter("submit"),(List<Issue_CustomerName>)request.getSession().getAttribute("issueList")));
+		
 	}
 	@RequestMapping(value="/adminReg",method=RequestMethod.POST)
 	public ModelAndView employeeReg(@ModelAttribute("newAdmin") @Validated Employee e, BindingResult bindingResult){
@@ -89,7 +101,7 @@ public class MyController {
 	@RequestMapping(value="/customerFilter", method=RequestMethod.POST)
 	public String doFilter(@RequestParam("servicenumber") String servicenumber,HttpServletRequest request) {
 		String submit = request.getParameter("submit");
-		if(submit.equals("Search")) {
+		if(submit.equals("Search") && !servicenumber.equals("")) {
 			request.getSession().setAttribute("customerList", myService.getCustomerListByNumber(servicenumber,(List)
 					request.getSession().getAttribute("customerList")));
 		}

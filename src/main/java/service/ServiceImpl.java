@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import beans.Customer;
 import beans.CustomerPlan;
 import beans.Employee;
+import beans.Issue;
+import beans.Issue_CustomerName;
 import beans.Plan;
 import intf.CardInfoDAO;
 import intf.CustomerDAO;
@@ -110,7 +112,7 @@ public class ServiceImpl implements Service {
 	}
 
 	@Override
-	public List getCustomerListByNumber(String servicenumber, List<Customer> list) {
+	public List<Customer> getCustomerListByNumber(String servicenumber, List<Customer> list) {
 		// TODO Auto-generated method stub
 		ArrayList<Customer> newList = new ArrayList<>();
 		for(Customer c : list) {
@@ -119,6 +121,37 @@ public class ServiceImpl implements Service {
 			}
 		}
 		return newList;
+	}
+
+	@Override
+	@Transactional
+	public List<Issue_CustomerName> getIssueList() {
+		// TODO Auto-generated method stub
+		ArrayList<Issue> issueList = (ArrayList<Issue>) issueDao.getIssueList();
+		ArrayList<Issue_CustomerName> list = new ArrayList<>(); 
+		for(Issue i : issueList) {
+			Issue_CustomerName issue = new Issue_CustomerName();
+			issue.setId(i.getId());
+			issue.setType(i.getType());
+			issue.setSubType(i.getSubType());
+			issue.setDetails(i.getDetails());
+			issue.setStatus(i.getStatus());
+			Customer c = customerDao.getCustemer(i.getCid());
+			issue.setCustomerName(c.getFirstName()+" " + c.getLastName());
+			list.add(issue);
+		}
+		return list;
+	}
+
+	@Override
+	public Issue_CustomerName getIssueByID(String id, List<Issue_CustomerName> issueList) {
+		// TODO Auto-generated method stub
+		for(Issue_CustomerName issue : issueList) {
+			if(issue.getId()==Integer.parseInt(id)) {
+				return issue;
+			}
+		}
+		return null;
 	}
 
 

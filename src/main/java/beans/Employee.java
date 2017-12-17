@@ -16,12 +16,11 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-//	@Size(min=2, max=30)
-	@NotBlank
+	@Size(min=2, max=30,message="Name must contain at least 2 characters")
 	private String name;
-	@NotBlank
+	@NotBlank(message="User ID cannot be blank")
 	private String userID;
-	@NotBlank
+	@NotBlank(message="Password cannot be blank")
 	private String password;
 	
 	public Employee() {
