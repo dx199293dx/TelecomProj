@@ -116,12 +116,12 @@
 
 <!-- Select Plan -->
 <div class="form-group"> 
-  <label class="col-md-4 control-label">Department / Office</label>
+  <label class="col-md-4 control-label">Plan</label>
     <div class="col-md-4 selectContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-    <form:select path="pid" name="department" class="form-control selectpicker">
-      <option value="">Select your Department/Office</option>
+    <form:select path="pid" name="plan" class="form-control selectpicker">
+      <option value="">------Select Plan-------</option>
       <form:options items="${planList}" itemValue="id" itemLabel="name"></form:options>
       <option>###</option>
       <option>...</option>
@@ -130,18 +130,6 @@
   </div>
 </div>
 </div>
-	<div class="form-group">
-	  <label class="col-md-4 control-label">First Name</label>  
-	  <div class="col-md-4 inputGroupContainer">
-	  <div class="input-group">
-	  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-	  <form:select path="pid">
-		<form:options items="${planList}" itemValue="id" itemLabel="name"></form:options>
-		</form:select><br>
-	    </div>
-	  </div>
-    <form:errors path="firstName" cssClass="error"/>
-	</div>
 <!-- Text input-->
 
 <div class="form-group">
@@ -174,7 +162,7 @@
   <label class="col-md-4 control-label" >Number</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-	  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+	  <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
 	  <form:input path="number" placeholder="Number" class="form-control"  type="text"/>
     </div>    
   </div>
@@ -189,7 +177,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4"><br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+    <center><button type="submit" class="btn btn-warning" > CREATE <span class="glyphicon glyphicon-send"></span></button></center>
   </div>
 </div>
 
@@ -197,8 +185,19 @@
 </form:form>
 </div>
 </div><!-- /.container -->     
-          </div>   
-       
-    </div>
+</div>        
+</div>
+
+		<script src="http://code.jquery.com/jquery.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <script>
+            $('#form').submit(function(e) {
+                $('#messages').removeClass('hide').addClass('alert alert-success alert-dismissible').slideDown().show();
+                $('#messages_content').html('<h4>Success</h4>');
+                $('#modal').modal('show');
+                e.preventDefault();
+            });
+        </script>
 </body>
 </html>

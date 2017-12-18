@@ -144,7 +144,7 @@
 		</div>
 	</div>
 	<form id="return_homepage" name="return_homepage" action="rtAdminHP.spring">
-	<button class="btn btn-warning" type="submit" name="submit" value="Return" style="width: 100px;float:right;">Return</button>						
+	<button class="btn btn-warning" type="submit" name="submit" value="Return" style="width: 100px;float:left;">Return</button>						
 	</form>
           </div>   
        

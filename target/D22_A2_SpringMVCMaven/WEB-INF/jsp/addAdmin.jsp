@@ -23,14 +23,6 @@
 	</style>
 </head>
 <body>
-<%-- <form:form name="adminRegister" method="post" action="adminReg.spring" modelAttribute="newAdmin">
-<label>Employee Name:</label><div><form:input path="name"></form:input><form:errors path="name" cssClass="error"/></div>
-<label>User ID:</label><div><form:input path="userID"></form:input><form:errors path="userID" cssClass="error"/></div>
-<label>Password:</label><div><form:password path="password"></form:password><form:errors path="password" cssClass="error"></form:errors></div>
-<button type="submit" name="adminReg">Submit</button>
-</form:form>
-<a href="rtAdminHP.spring">return</a>
- --%>
  <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">
@@ -138,7 +130,7 @@
   <label class="col-md-4 control-label" >Password</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-	  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+	  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 	  <form:input path="password" placeholder="Password" class="form-control"  type="password"/>
     </div>    
   </div>
@@ -151,7 +143,7 @@
   <label class="col-md-4 control-label" >Confirm Password</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
   <input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
     </div>
   </div>
