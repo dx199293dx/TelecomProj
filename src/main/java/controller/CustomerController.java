@@ -51,6 +51,21 @@ public class CustomerController {
 		}
 	}
 	
+	@RequestMapping(value="/adminLogout")
+	public ModelAndView employeeLogout(HttpServletRequest request){
+		request.getSession().setAttribute("employee", null);
+		return new ModelAndView("adminLogin");
+	}
+	@RequestMapping(value="/addEmployee")
+	public ModelAndView addEmployee(Model model) {
+		model.addAttribute("newAdmin", new Employee());
+		return new ModelAndView("addAdmin");
+	}
+	@RequestMapping(value="/createNewCustomer")
+	public ModelAndView createNewCustomer(Model model) {
+		model.addAttribute("newCP",new CustomerPlan());
+		return new ModelAndView("createNewService","planList", myService.getPlanList());
+	}
 	@RequestMapping(value="/viewCustomers")
 	public ModelAndView viewCustomers(HttpServletRequest request, Model model) {
 		request.getSession().setAttribute("customerList", myService.getCustomerList());
