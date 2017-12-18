@@ -108,7 +108,7 @@
   <form:input  path="name" placeholder="Name" class="form-control"  type="text"/>
     </div>
   </div>
-    <form:errors path="name" cssClass="error"/>
+    <form:errors path="name" cssClass="error" style="color:red;"/>
 </div>
 
 <!-- Text input-->
@@ -121,7 +121,7 @@
   <form:input  path="userID" placeholder="ID" class="form-control"  type="text"/> 
   </div>
   </div>
-  <form:errors path="userID" cssClass="error"/>
+  <form:errors path="userID" cssClass="error" style="color:red;"/>
 </div>
 
 <!-- Text input-->
@@ -131,10 +131,10 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
 	  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-	  <form:input path="password" placeholder="Password" class="form-control"  type="password"/>
+	  <form:input id="password" path="password" placeholder="Password" class="form-control"  type="password"/>
     </div>    
   </div>
-  <form:errors path="password" cssClass="error"/>
+  <form:errors path="password" cssClass="error" style="color:red;"/>
 </div>
 
 <!-- Text input-->
@@ -144,7 +144,8 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-  <input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
+  <input id="confirm_password" name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
+  <p id="conPassError" style="color:red;"></p>
     </div>
   </div>
 </div>
@@ -157,7 +158,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4"><br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+    <center><button type="submit" class="btn btn-warning" onclick = "varifyConfirmPass()"> SUBMIT <span class="glyphicon glyphicon-send"></span></button></center>
   </div>
 </div>
 
