@@ -5,5 +5,5 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class CustomerController {
 
-	//change for test6
+	//change for test7
 }
