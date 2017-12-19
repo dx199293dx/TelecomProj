@@ -30,15 +30,15 @@ Data:<p>${myPlan.data}</p> --%>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="#">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" >
               <a class="nav-link" href="#">Bill</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="getMyPlan.spring">Plan</a>
             </li>
             <li class="nav-item">
@@ -65,22 +65,23 @@ Data:<p>${myPlan.data}</p> --%>
             <table class="table">
                 <tbody>
                     <tr>
-                        <td rowspan="2" style="width:252px;height:198px;font-size:20px;">Your Device:<img class="img-rounded" style="height:300px;background-image:url(&quot;https://my.t-mobile.com/etc/designs/mytmobile/desktop/pageclientlibs/img/Icon_Desktop_Unidentified-Phone_LoRes.png&quot;);width:183px;"></td>
+                        <td rowspan="2" >Your Device:<br>
+                        <img class="img-rounded" style="height:300px;background-image:url(&quot;https://my.t-mobile.com/etc/designs/mytmobile/desktop/pageclientlibs/img/Icon_Desktop_Unidentified-Phone_LoRes.png&quot;);width:183px;"></td>
                         <td>
                             <div class="table-responsive">
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td style="width:200px;">Name </td>
-                                            <td >First name and Last Name</td>
+                                            <td style="width:100px;">Name </td>
+                                            <td >${myPlan.firstName} ${myPlan.lastName}</td>
                                         </tr>
                                         <tr>
                                             <td >Number </td>
-                                            <td > </td>
+                                            <td >${myPlan.number} </td>
                                         </tr>
                                         <tr>
                                             <td >Plan </td>
-                                            <td >Plan name</td>
+                                            <td >${myPlan.type}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -91,23 +92,23 @@ Data:<p>${myPlan.data}</p> --%>
                         <td>
                             <div class="table-responsive">
                                 <table class="table">
-                                    <caption>Plan Detals</caption>
+
                                     <tbody>
                                         <tr>
-                                            <td style="width:200px;">Text </td>
-                                            <td> </td>
+                                            <td>Text </td>
+                                            <td>${myPlan.text}</td>
                                         </tr>
                                         <tr>
                                             <td>Voice </td>
-                                            <td> </td>
+                                            <td> ${myPlan.voice}</td>
                                         </tr>
                                         <tr>
                                             <td>Data </td>
-                                            <td> </td>
+                                            <td> ${myPlan.data} GB</td>
                                         </tr>
                                         <tr>
                                             <td>Price </td>
-                                            <td> </td>
+                                            <td>\$ ${myPlan.price} </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -122,40 +123,16 @@ Data:<p>${myPlan.data}</p> --%>
                 <tbody>
                     <tr>
                         <td>
-                            <form><button class="btn btn-default btn-block btn-lg" type="button" style="width:200px;height:60px;">Button</button></form>
+                            <form><button class="btn btn-default btn-block btn-lg" type="button" >Change My Current Plan</button></form>
                         </td>
                         <td>
-                            <form><button class="btn btn-default btn-block btn-lg" type="button" style="width:200px;height:60px;">Button</button></form>
+                            <form><button class="btn btn-default btn-block btn-lg" type="button" >Add A Plan</button></form>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-
-          <!-- Blog Post -->
-          <div class="card mb-4">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-            <div class="card-body">
-              <h2 class="card-title">Post Title</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
-            </div>
-            <!-- <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
-              <a href="#">Start Bootstrap</a>
-            </div> -->
-          </div>
-
-          <!-- Pagination -->
-          <!-- <ul class="pagination justify-content-center mb-4">
-            <li class="page-item">
-              <a class="page-link" href="#">&larr; Older</a>
-            </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#">Newer &rarr;</a>
-            </li>
-          </ul> -->
 
         </div>
 
