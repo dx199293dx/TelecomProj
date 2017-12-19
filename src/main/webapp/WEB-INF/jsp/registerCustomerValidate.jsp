@@ -14,9 +14,11 @@
 <div class="container">
 	<section id="content">
 		<form name="registerCustomerValidate" method="post" action="registerCustomerValidate.spring">
-			<h1> Customer Registration</h1>
+			<h1>Customer Registration</h1>
 			<div>
-				<input type="text" placeholder="service number" name="servicenumber" id="servicenumber" />
+				<input type="text" placeholder="Service Number" name="servicenumber" id="servicenumber" />
+				<input type="text" placeholder="First Name" name="firstName" id="firstName"/>
+				<input type="text" placeholder="Last Name" name="lastName" id="lastName"/>
 			</div>
 			<div>
 				<input type="submit" value="submit" />

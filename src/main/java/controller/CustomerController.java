@@ -34,7 +34,7 @@ public class CustomerController {
 //		System.out.println(c.getId());
 //		return "customerHomepage";
 //	}
-	@RequestMapping(value="getMyPlan")
+	@RequestMapping(value="/getMyPlan")
 	public ModelAndView getMyPlan(HttpServletRequest request) {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		PhonePlanDetails ppd = service.getMyPlan(c.getId());	
@@ -67,8 +67,8 @@ public class CustomerController {
 	
 	
 	@RequestMapping(value="registerCustomerValidate")
-	public ModelAndView regValidate(@RequestParam("servicenumber") String servicenumber, HttpServletRequest request, Model model) {
-		Customer customer = service.registrationVal(servicenumber);
+	public ModelAndView regValidate(@RequestParam("servicenumber") String servicenumber,@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, HttpServletRequest request, Model model) {
+		Customer customer = service.registrationVal(servicenumber, firstName, lastName);
 //		System.out.println(customer.getId());
 		if(customer==null)//!customer.getServicenumber().equals(servicenumber)) 
 		{
