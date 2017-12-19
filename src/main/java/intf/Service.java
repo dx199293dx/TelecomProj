@@ -26,7 +26,7 @@ public interface Service {
 	public PhonePlanDetails getMyPlan(int id);
 
 	public Customer custLogin(String userID, String password);
-	public Customer registrationVal(String servicenumber);
+	public Customer registrationVal(String servicenumber, String firstName, String lastName);
 	public void addCustomer(Customer c);
 	public void saveCustomer(Customer c);
 

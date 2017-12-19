@@ -51,7 +51,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <form:input  path="firstName" placeholder="First Name" class="form-control"  type="text"/>
+  <form:input  path="firstName" placeholder="First Name" class="form-control"  type="text" readonly="readonly"/>
     </div>
   </div>
     <form:errors path="firstName" cssClass="error" style="color:red;"/>
@@ -63,7 +63,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <form:input  path="lastName" placeholder="Last Name" class="form-control"  type="text"/>
+  <form:input  path="lastName" placeholder="Last Name" class="form-control"  type="text" readonly="readonly"/>
     </div>
   </div>
     <form:errors path="lastName" cssClass="error" style="color:red;"/>
@@ -183,7 +183,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <form:input  path="servicenumber" placeholder="Service Number" class="form-control"  type="text"/>
+  <form:input  path="servicenumber" placeholder="Service Number" class="form-control"  type="text" readonly="readonly"/>
     </div>
   </div>
     <form:errors path="servicenumber" cssClass="error" style="color:red;"/>

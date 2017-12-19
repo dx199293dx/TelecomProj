@@ -243,10 +243,10 @@ public class ServiceImpl implements Service {
 
 	@Override
 	@Transactional
-	public Customer registrationVal(String servicenumber) {
+	public Customer registrationVal(String servicenumber, String firstName, String lastName) {
 		ArrayList<Customer> calist = (ArrayList<Customer>) customerDao.getCustomerList();
 		for(Customer c : calist) {
-			if(c.getServicenumber().equals(servicenumber)) {
+			if(c.getServicenumber().equals(servicenumber) && c.getFirstName().equals(firstName) && c.getLastName().equals(lastName)) {
 				return c;
 			}
 		}
