@@ -12,6 +12,7 @@ import beans.Issue;
 import beans.Issue_CustomerName;
 import beans.PhonePlanDetails;
 import beans.Plan;
+import intf.BillDAO;
 import intf.CardInfoDAO;
 import intf.CustomerDAO;
 import intf.CustomerPlanDAO;
@@ -29,7 +30,11 @@ public class ServiceImpl implements Service {
 	private CustomerPlanDAO cpDao; 
 	private CardInfoDAO ciDao; 
 	private IssueDAO issueDao; 
+	private BillDAO billDao;
 
+	public void setBillDao(BillDAO billDao) {
+		this.billDao = billDao;
+	}
 
 	public IssueDAO getIssueDao() {
 		return issueDao;

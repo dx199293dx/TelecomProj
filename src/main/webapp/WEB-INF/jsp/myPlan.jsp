@@ -57,9 +57,81 @@ Data:<p>${myPlan.data}</p> --%>
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Page Heading
+          <!-- <h1 class="my-4">Page Heading
             <small>Secondary Text</small>
-          </h1>
+          </h1> -->
+          <div class="container" style="margin:10px;">
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td rowspan="2" style="width:252px;height:198px;font-size:20px;">Your Device:<img class="img-rounded" style="height:300px;background-image:url(&quot;https://my.t-mobile.com/etc/designs/mytmobile/desktop/pageclientlibs/img/Icon_Desktop_Unidentified-Phone_LoRes.png&quot;);width:183px;"></td>
+                        <td>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:200px;">Name </td>
+                                            <td >First name and Last Name</td>
+                                        </tr>
+                                        <tr>
+                                            <td >Number </td>
+                                            <td > </td>
+                                        </tr>
+                                        <tr>
+                                            <td >Plan </td>
+                                            <td >Plan name</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <caption>Plan Detals</caption>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:200px;">Text </td>
+                                            <td> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Voice </td>
+                                            <td> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Data </td>
+                                            <td> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price </td>
+                                            <td> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <form><button class="btn btn-default btn-block btn-lg" type="button" style="width:200px;height:60px;">Button</button></form>
+                        </td>
+                        <td>
+                            <form><button class="btn btn-default btn-block btn-lg" type="button" style="width:200px;height:60px;">Button</button></form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
           <!-- Blog Post -->
           <div class="card mb-4">

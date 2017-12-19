@@ -50,6 +50,7 @@
     <value>beans.CustomerPlan</value>
     <value>beans.CardInfo</value>
     <value>beans.Issue</value>
+    <value>beans.Bill</value>
     </list>
     </property>
 	    <property name="hibernateProperties">
@@ -81,6 +82,10 @@
     <bean id="issueDao" class="dao.IssueDAOImpl">
      <property name="sessionFactory" ref="mySessionFactory"></property>  
     </bean>
+    <bean id="billDao" class="dao.BillDAOImpl">
+     <property name="sessionFactory" ref="mySessionFactory"></property>  
+    </bean>
+    
     
      <bean id="service" class="service.ServiceImpl">
      <property name="employeeDao" ref="employeeDao"></property>
@@ -89,6 +94,7 @@
      <property name="cpDao" ref="customerPlanDao"></property>
      <property name="ciDao" ref="cardInfoDao"></property>
       <property name="issueDao" ref="issueDao"></property>
+      <property name="billDao" ref="billDao"></property>
      </bean>
      <tx:annotation-driven transaction-manager="transactionManager" />
      <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
