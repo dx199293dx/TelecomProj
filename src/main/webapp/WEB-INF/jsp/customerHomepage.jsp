@@ -158,10 +158,5 @@
 
     </div>
     <!-- /.container -->
-<<<<<<< HEAD
-<a href="customerLogout.spring">Logout</a>
-=======
-
->>>>>>> Employee1.0
 </body>
 </html>

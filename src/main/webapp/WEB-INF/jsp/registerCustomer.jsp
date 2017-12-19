@@ -111,7 +111,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <form:input  path="dob" placeholder="DOB: mm/dd/yyyy" class="form-control"  type="text"/>
+  <form:input  path="dob" placeholder="mm/dd/yyyy" class="form-control"  type="text"/>
     </div>
   </div>
     <form:errors path="dob" cssClass="error" style="color:red;"/>
@@ -159,7 +159,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <form:input  path="zip" placeholder="Ex: 09863" class="form-control"  type="text"/>
+  <form:input  path="zip" placeholder="09863" class="form-control"  type="text"/>
     </div>
   </div>
     <form:errors path="zip" cssClass="error" style="color:red;"/>

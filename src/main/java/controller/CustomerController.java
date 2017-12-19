@@ -5,15 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-<<<<<<< HEAD
-=======
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import beans.Customer;
 import beans.PhonePlanDetails;
 
->>>>>>> Employee1.0
+
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -101,9 +100,5 @@ public class CustomerController {
 		request.getSession().setAttribute("customer", null);
 		return new ModelAndView("customerLogin");
 	}
-<<<<<<< HEAD
-	
 
-=======
->>>>>>> Employee1.0
 }
