@@ -4,52 +4,42 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-<<<<<<< HEAD
-import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import beans.Customer;
 import beans.PhonePlanDetails;
-=======
+
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import beans.Customer;
->>>>>>> customer1.0
+
 import intf.Service;
 
 @Controller
 public class CustomerController {
-<<<<<<< HEAD
-
-	@Autowired
-	private Service myService;
-
-	@RequestMapping(value = "/customer")
-	public String customer(HttpServletRequest request) {
-		Customer c = myService.getCustomerList().get(0);//need to be changed, read the customer from seesion scope
-		request.getSession().setAttribute("customer", c);
-		System.out.println(c.getId());
-		return "customerHomepage";
-	}
-	@RequestMapping(value="getMyPlan")
-	@Transactional
-	public ModelAndView getMyPlan(HttpServletRequest request) {
-		Customer c = (Customer) request.getSession().getAttribute("customer");
-		PhonePlanDetails ppd = myService.getMyPlan(c.getId());
-		
-		return new ModelAndView("myPlan", "myPlan", ppd);	
-	}
-=======
-	
 	@Autowired
 	private Service service;
+
+//	@RequestMapping(value = "/customer")
+//	public String customer(HttpServletRequest request) {
+//		Customer c = service.getCustomerList().get(0);//need to be changed, read the customer from seesion scope
+//		request.getSession().setAttribute("customer", c);
+//		System.out.println(c.getId());
+//		return "customerHomepage";
+//	}
+	@RequestMapping(value="getMyPlan")
+	public ModelAndView getMyPlan(HttpServletRequest request) {
+		Customer c = (Customer) request.getSession().getAttribute("customer");
+		PhonePlanDetails ppd = service.getMyPlan(c.getId());	
+		return new ModelAndView("myPlan", "myPlan", ppd);	
+	}
+	
+	
 	
 	@RequestMapping(value="customer")
 	public String customer() {
@@ -108,6 +98,4 @@ public class CustomerController {
 		request.getSession().setAttribute("customer", null);
 		return new ModelAndView("customerLogin");
 	}
-	
->>>>>>> customer1.0
 }

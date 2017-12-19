@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -17,7 +16,7 @@
     <link href="${blogHome}" rel="stylesheet" />
     
     <!--  script  -->
-<%--     <spring:url value="/resources/js/jquery.min.js" var="jquery" />
+	<%--     <spring:url value="/resources/js/jquery.min.js" var="jquery" />
     <script src="${jquery}"></script>
     
     <spring:url value="/resources/js/bootstrap.bundle.min.js" var="bootstrap.bundle.min.js" />
@@ -89,6 +88,7 @@
               <a class="page-link" href="#">Newer &rarr;</a>
             </li>
           </ul>
+          <a href="customerLogout.spring">Logout</a>
 
         </div>
 
@@ -158,22 +158,6 @@
 
     </div>
     <!-- /.container -->
-=======
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-Welcome Customer
 
-<br>
-<br>
-
-<a href="customerLogout.spring">Logout</a>
->>>>>>> customer1.0
 </body>
 </html>

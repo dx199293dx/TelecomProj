@@ -181,8 +181,9 @@ public class ServiceImpl implements Service {
 		return newList;
 	}
 
-<<<<<<< HEAD
+
 	@Override
+	@Transactional
 	public PhonePlanDetails getMyPlan(int id) {
 		// TODO Auto-generated method stub
 		PhonePlanDetails ppd = new PhonePlanDetails();
@@ -205,16 +206,22 @@ public class ServiceImpl implements Service {
 		return ppd;
 	}
 
-=======
-	
+
 	// ------------------------------------CUSTOMER--------------------------------------------------- 
 	@Override
 	@Transactional
 	public Customer custLogin(String userID, String password) {
+		
 		ArrayList<Customer> clist = (ArrayList<Customer>) customerDao.getCustomerList();
+		System.out.println(clist);
 		for(Customer cust : clist) {
-			if(cust.getUserID().equals(userID) && cust.getPassword().equals(password))
+			String cuserID = cust.getUserID();
+			String pass = cust.getPassword();
+			System.out.println(cuserID+" "+pass);
+			if(cuserID!=null && pass != null && cuserID.equals(userID) && pass.equals(password)) {
+
 				return cust;
+			}
 		}
 		return new Customer();
 	}
@@ -230,7 +237,7 @@ public class ServiceImpl implements Service {
 		}
 		return new Customer();
 	}
->>>>>>> customer1.0
+
 
 	@Override
 	@Transactional
