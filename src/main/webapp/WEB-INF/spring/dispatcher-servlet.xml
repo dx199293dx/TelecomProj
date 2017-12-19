@@ -13,7 +13,7 @@
 	http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd
 	http://www.springframework.org/schema/mvc  
-     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<mvc:annotation-driven/>
 	<context:component-scan	base-package="controller" />
 		
@@ -34,9 +34,16 @@
 
 	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
 	<property  name="driverClassName" ><value>com.mysql.jdbc.Driver</value></property>
+<<<<<<< HEAD
 	<property  name="url" ><value>jdbc:mysql://localhost:3306/TelecomProj</value></property>
 	<property  name="username"><value>root</value></property>
 	<property  name="password"><value></value></property>
+=======
+	<property  name="url" ><value>jdbc:mysql://10.10.11.35:3306/telecomproj</value></property>
+	<!-- jdbc:mysql://localhost:3306/telecomproj -->
+	<property  name="username"><value>lakshmi</value></property>
+	<property  name="password"><value>telecom</value></property>
+>>>>>>> customer1.0
    	</bean>
 	
 	<bean id="mySessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
