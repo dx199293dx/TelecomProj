@@ -8,24 +8,20 @@
 	<!-- BOOTSTRAP STYLES-->
     <spring:url value="/resources/css/bootstrap.min.css" var="homepageBoot" />
     <link href="${homepageBoot}" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-   <%--  <spring:url value="/resources/css/adminHomeFont.css" var="adminHomeFontCss" />
-    <link href="${adminHomeFontCss}" rel="stylesheet" /> --%>
-        <!-- CUSTOM STYLES-->
-     <spring:url value="/resources/css/blog-home.css" var="blogHome" />
+    <!-- CUSTOM STYLES-->
+    <spring:url value="/resources/css/blog-home.css" var="blogHome" />
     <link href="${blogHome}" rel="stylesheet" />
-    
-    <!--  script  -->
-	<%--     <spring:url value="/resources/js/jquery.min.js" var="jquery" />
-    <script src="${jquery}"></script>
-    
-    <spring:url value="/resources/js/bootstrap.bundle.min.js" var="bootstrap.bundle.min.js" />
-    <script src="${bootstrap.bundle.min.js}"></script>
-    --%>
-<title>Customer Homepage</title>
+<title>My Plan</title>
 </head>
 <body>
-	<!-- Navigation -->
+<%-- ID:<p>${myPlan.id}</p>
+First Name:<p>${myPlan.firstName}</p>
+Last Name:<p>${myPlan.number}</p>
+Type:<p>${myPlan.type}</p>
+Text:<p>${myPlan.text}</p>
+Voice:<p>${myPlan.voice}</p>
+Data:<p>${myPlan.data}</p> --%>
+<!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Customer Homepage</a>
@@ -73,41 +69,27 @@
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
               <a href="#" class="btn btn-primary">Read More &rarr;</a>
             </div>
-            <div class="card-footer text-muted">
+            <!-- <div class="card-footer text-muted">
               Posted on January 1, 2017 by
               <a href="#">Start Bootstrap</a>
-            </div>
+            </div> -->
           </div>
 
           <!-- Pagination -->
-          <ul class="pagination justify-content-center mb-4">
+          <!-- <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
               <a class="page-link" href="#">&larr; Older</a>
             </li>
             <li class="page-item disabled">
               <a class="page-link" href="#">Newer &rarr;</a>
             </li>
-          </ul>
-          <a href="customerLogout.spring">Logout</a>
+          </ul> -->
 
         </div>
 
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
-
-          <!-- Search Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Search</h5>
-            <div class="card-body">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
-            </div>
-          </div>
-
+        
           <!-- Categories Widget -->
           <div class="card my-4">
             <h5 class="card-header">Categories</h5>
@@ -158,10 +140,5 @@
 
     </div>
     <!-- /.container -->
-<<<<<<< HEAD
-<a href="customerLogout.spring">Logout</a>
-=======
-
->>>>>>> Employee1.0
 </body>
 </html>

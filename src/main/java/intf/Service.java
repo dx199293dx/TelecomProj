@@ -7,6 +7,7 @@ import beans.CustomerPlan;
 import beans.Employee;
 import beans.Issue;
 import beans.Issue_CustomerName;
+import beans.PhonePlanDetails;
 import beans.Plan;
 
 public interface Service {
@@ -21,8 +22,12 @@ public interface Service {
 	public Issue_CustomerName getIssueByID(String id, List<Issue_CustomerName> issueList);
 	public List<Issue_CustomerName> modifyStatus(Issue_CustomerName issue);
 	public List<Issue_CustomerName> getIssueListByName(String name, List<Issue_CustomerName> list);
+
+	public PhonePlanDetails getMyPlan(int id);
+
 	public Customer custLogin(String userID, String password);
 	public Customer registrationVal(String servicenumber);
 	public void addCustomer(Customer c);
 	public void saveCustomer(Customer c);
+
 }

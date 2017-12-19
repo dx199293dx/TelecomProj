@@ -10,6 +10,7 @@ import beans.CustomerPlan;
 import beans.Employee;
 import beans.Issue;
 import beans.Issue_CustomerName;
+import beans.PhonePlanDetails;
 import beans.Plan;
 import intf.CardInfoDAO;
 import intf.CustomerDAO;
@@ -180,15 +181,47 @@ public class ServiceImpl implements Service {
 		return newList;
 	}
 
-	
+
+	@Override
+	@Transactional
+	public PhonePlanDetails getMyPlan(int id) {
+		// TODO Auto-generated method stub
+		PhonePlanDetails ppd = new PhonePlanDetails();
+		Customer c = customerDao.getCustomer(id);
+		ppd.setFirstName(c.getFirstName());
+		ppd.setLastName(c.getLastName());
+		ppd.setNumber(c.getServicenumber());
+		CustomerPlan cp = cpDao.getCustomerPlanByNumber(c.getServicenumber());
+		ppd.setId(cp.getId());
+		int pid = cp.getPid();
+		Plan p = planDao.getPlan(pid);
+		ppd.setType(p.getType());
+		ppd.setPrice(p.getPrice());
+		String[] detail = p.getDetails().split(",");
+		ppd.setText(detail[0].substring(5));
+		ppd.setVoice(detail[1].substring(6));
+		ppd.setData(detail[2].substring(5));
+		System.out.println(ppd);
+		
+		return ppd;
+	}
+
+
 	// ------------------------------------CUSTOMER--------------------------------------------------- 
 	@Override
 	@Transactional
 	public Customer custLogin(String userID, String password) {
+		
 		ArrayList<Customer> clist = (ArrayList<Customer>) customerDao.getCustomerList();
+		System.out.println(clist);
 		for(Customer cust : clist) {
-			if(cust.getUserID().equals(userID) && cust.getPassword().equals(password))
+			String cuserID = cust.getUserID();
+			String pass = cust.getPassword();
+			System.out.println(cuserID+" "+pass);
+			if(cuserID!=null && pass != null && cuserID.equals(userID) && pass.equals(password)) {
+
 				return cust;
+			}
 		}
 		return new Customer();
 	}
@@ -204,6 +237,7 @@ public class ServiceImpl implements Service {
 		}
 		return new Customer();
 	}
+
 
 	@Override
 	@Transactional

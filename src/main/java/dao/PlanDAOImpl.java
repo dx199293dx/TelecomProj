@@ -24,4 +24,11 @@ public class PlanDAOImpl implements PlanDAO {
 		return planList;
 	}
 
+	@Override
+	public Plan getPlan(int id) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		return (Plan) session.get(Plan.class, id);
+	}
+
 }

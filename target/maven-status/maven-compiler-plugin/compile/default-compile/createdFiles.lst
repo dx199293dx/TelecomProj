@@ -1,5 +1,6 @@
 dao/CardInfoDAOImpl.class
 beans/Customer.class
+beans/PhonePlanDetails.class
 intf/CustomerPlanDAO.class
 intf/Service.class
 dao/CustomerDAOImpl.class
@@ -8,6 +9,7 @@ validator/EmployeeValidator.class
 intf/CardInfoDAO.class
 beans/Employee.class
 beans/Plan.class
+validator/CustomerValidator.class
 beans/Issue.class
 controller/CustomerController.class
 intf/PlanDAO.class

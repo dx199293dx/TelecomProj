@@ -2,3 +2,10 @@
 .classpath
 
 .classpath
+*.jsp
+*.jsp
+src/main/webapp/WEB-INF/jsp/customerHomepage.jsp
+src/main/webapp/index.jsp
+src/main/webapp/WEB-INF/spring/dispatcher-servlet.xml
+src/main/java/controller/CustomerController.java
+.classpath
