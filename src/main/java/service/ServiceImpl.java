@@ -180,6 +180,59 @@ public class ServiceImpl implements Service {
 		return newList;
 	}
 
+	
+	// ------------------------------------CUSTOMER--------------------------------------------------- 
+	@Override
+	@Transactional
+	public Customer custLogin(String userID, String password) {
+		ArrayList<Customer> clist = (ArrayList<Customer>) customerDao.getCustomerList();
+		for(Customer cust : clist) {
+			if(cust.getUserID().equals(userID) && cust.getPassword().equals(password))
+				return cust;
+		}
+		return new Customer();
+	}
 
+	@Override
+	@Transactional
+	public Customer registrationVal(String servicenumber) {
+		ArrayList<Customer> calist = (ArrayList<Customer>) customerDao.getCustomerList();
+		for(Customer c : calist) {
+			if(c.getServicenumber().equals(servicenumber)) {
+				return c;
+			}
+		}
+		return new Customer();
+	}
+
+	@Override
+	@Transactional
+	public void addCustomer(Customer c) {
+		// TODO Auto-generated method stub
+		customerDao.addCusteomer(c);
+		
+	}
+
+	@Override
+	@Transactional
+	public void saveCustomer(Customer c) {
+		// TODO Auto-generated method stub
+//		System.out.println( c);
+//		int id = c.getId();
+//		Customer customer = customerDao.getCustomer(id);
+//		customer.setUserID(c.getUserID());
+//		customer.setPassword(c.getPassword());
+//		customer.setEmail(c.getEmail());
+//		customer.setPhone(c.getPhone());
+//		customer.setSsn(c.getSsn());
+//		customer.setStreet(c.getStreet());
+//		customer.setCity(c.getCity());
+//		customer.setState(c.getState());
+//		customer.setZip(c.getZip());
+		customerDao.updateCustomer(c);
+		
+	}
+
+	
 
 }
