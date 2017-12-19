@@ -92,6 +92,16 @@ public class ServiceImpl implements Service {
 		c.setFirstName(cp.getFirstName());
 		c.setLastName(cp.getLastName());
 		c.setServicenumber(cp.getNumber());
+		c.setEmail("email@email.com");
+		c.setDob("mm/dd/yyyy");
+		c.setPhone("Phone");
+		c.setSsn("SSN");
+		c.setStreet("Street");
+		c.setCity("City");
+		c.setState("State");
+		c.setZip("09863");
+		c.setUserID("User ID");
+		c.setPassword("000000");
 		int cid = customerDao.addCusteomer(c);
 		cp.setCid(cid);
 		cpDao.addCustomerPlan(cp);
