@@ -7,4 +7,5 @@ import beans.Plan;
 public interface PlanDAO {
 
 	public List<Plan> getPlanList();
+	public Plan getPlan(int id);
 }

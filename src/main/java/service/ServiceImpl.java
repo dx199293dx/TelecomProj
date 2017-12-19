@@ -10,6 +10,7 @@ import beans.CustomerPlan;
 import beans.Employee;
 import beans.Issue;
 import beans.Issue_CustomerName;
+import beans.PhonePlanDetails;
 import beans.Plan;
 import intf.CardInfoDAO;
 import intf.CustomerDAO;
@@ -178,6 +179,29 @@ public class ServiceImpl implements Service {
 			}
 		}
 		return newList;
+	}
+
+	@Override
+	public PhonePlanDetails getMyPlan(int id) {
+		// TODO Auto-generated method stub
+		PhonePlanDetails ppd = new PhonePlanDetails();
+		Customer c = customerDao.getCustomer(id);
+		ppd.setFirstName(c.getFirstName());
+		ppd.setLastName(c.getLastName());
+		ppd.setNumber(c.getServicenumber());
+		CustomerPlan cp = cpDao.getCustomerPlanByNumber(c.getServicenumber());
+		ppd.setId(cp.getId());
+		int pid = cp.getPid();
+		Plan p = planDao.getPlan(pid);
+		ppd.setType(p.getType());
+		ppd.setPrice(p.getPrice());
+		String[] detail = p.getDetails().split(",");
+		ppd.setText(detail[0].substring(5));
+		ppd.setVoice(detail[1].substring(6));
+		ppd.setData(detail[2].substring(5));
+		System.out.println(ppd);
+		
+		return ppd;
 	}
 
 
