@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- BOOTSTRAP STYLES-->
+	<!-- BOOTSTRAP STYLES-->
     <spring:url value="/resources/css/bootstrap.min.css" var="homepageBoot" />
     <link href="${homepageBoot}" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -14,11 +14,8 @@
      <link href="${adminHomeFontCss}" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
     <spring:url value="/resources/css/blog-home.css" var="blogHome" />
-    <spring:url value="/resources/css/Pricing-Table-Style-01.css" var="pt01" />
-     <spring:url value="/resources/css/Pricing-Table-Style-011.css" var="pt011" />
     <link href="${blogHome}" rel="stylesheet" />
-    <link href="${pt01}" rel="stylesheet" />
-    <link href="${pt011}" rel="stylesheet" />
+    
     
     <!--  script  -->
 	<script type="text/javascript">
@@ -48,7 +45,7 @@
               </a>
             </li>
             <li class="nav-item" >
-              <a class="nav-link" href="#">Bill</a>
+              <a class="nav-link" href="getMyBill.spring">Bill</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="getMyPlan.spring">Plan
@@ -58,6 +55,10 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Customer Service</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="customerLogout.spring">Logout</a>
             </li>
           </ul>
         </div>
@@ -81,7 +82,7 @@
                                         <li>Data: ${phonePlan.data} GB</li>
                                     </ul>
                                 </div>
-                                <div class="pricingTable-sign-up"><form action="changePlan.spring"><button type="submit" onclick="return changePlan()" name="submit" value="1" class="btn btn-block">Choose</button></form></div>
+                                <div class="pricingTable-sign-up"><form action="changePlan.spring"><button type="submit" onclick="return changePlan()" name="submit" value="${phonePlan.id}" class="btn btn-block">Choose</button></form></div>
                             </div>
                         </div>
                     </c:forEach>

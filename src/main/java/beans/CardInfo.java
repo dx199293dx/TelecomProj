@@ -14,8 +14,7 @@ public class CardInfo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String type;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String expireDate;
 	private String cardNo;
 	private String code;
@@ -23,15 +22,14 @@ public class CardInfo {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CardInfo(int id, String type, String firstName, String lastName, String expireDate, String cardNo,
+	public CardInfo(int id, String type, String name, String expireDate, String cardNo,
 			String code) {
 		
 		//abc
 		super();
 		this.id = id;
 		this.type = type;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.name = name;
 		this.expireDate = expireDate;
 		this.cardNo = cardNo;
 		this.code = code;
@@ -48,17 +46,11 @@ public class CardInfo {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getExpireDate() {
 		return expireDate;
@@ -80,8 +72,9 @@ public class CardInfo {
 	}
 	@Override
 	public String toString() {
-		return "CardInfo [id=" + id + ", type=" + type + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", expireDate=" + expireDate + ", cardNo=" + cardNo + ", code=" + code + "]";
+		return "CardInfo [id=" + id + ", type=" + type + ", name=" + name + ", expireDate=" + expireDate + ", cardNo="
+				+ cardNo + ", code=" + code + "]";
 	}
+
 	
 }

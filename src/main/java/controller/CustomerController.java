@@ -117,4 +117,13 @@ public class CustomerController {
 	public String customerHomepage() {
 		return "customerHomepage";
 	}
+	@RequestMapping(value="/getMyBill")
+	public String customerBill() {
+		return "myBill";
+	}
+	@RequestMapping(value="/paymentInfo")
+	public ModelAndView paymentInfo() {
+		return new ModelAndView("payment");
+	}
+	
 }

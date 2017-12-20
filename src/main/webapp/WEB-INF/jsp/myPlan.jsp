@@ -32,7 +32,7 @@
               </a>
             </li>
             <li class="nav-item" >
-              <a class="nav-link" href="#">Bill</a>
+              <a class="nav-link" href="getMyBill.spring">Bill</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="getMyPlan.spring">Plan
@@ -42,6 +42,10 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Customer Service</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="customerLogout.spring">Logout</a>
             </li>
           </ul>
         </div>
