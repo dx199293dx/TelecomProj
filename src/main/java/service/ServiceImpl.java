@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import beans.Bill;
 import beans.Customer;
 import beans.CustomerPlan;
 import beans.Employee;
@@ -20,6 +21,7 @@ import intf.EmployeeDAO;
 import intf.IssueDAO;
 import intf.PlanDAO;
 import intf.Service;
+import util.DateUtils;
 
 
 
@@ -139,6 +141,7 @@ public class ServiceImpl implements Service {
 		return newList;
 	}
 
+	
 	@Override
 	@Transactional
 	public List<Issue_CustomerName> getIssueList() {
@@ -219,6 +222,7 @@ public class ServiceImpl implements Service {
 		return ppd;
 	}
 
+	
 
 	// ------------------------------------CUSTOMER--------------------------------------------------- 
 	@Override
@@ -311,6 +315,41 @@ public class ServiceImpl implements Service {
 		cp.setPid(pid);
 		cpDao.update(cp);
 		return getMyPlan(c.getId());
+	}
+
+	@Override
+	@Transactional
+	public List<Bill> getmyBill(String servicenumber) {
+			
+		ArrayList<Bill> bills = (ArrayList<Bill>) billDao.getCustomerBillList();
+		ArrayList<Bill> bills2 = new ArrayList<>();
+		for(Bill b : bills) {
+			if(b.getServicenumber().equals(servicenumber)) {
+				
+				bills2.add(b);
+			}
+		}
+		System.out.println(bills2);
+		return bills2;
+	}
+
+	@Override
+	@Transactional
+	public Bill currentBill(List<Bill> blist) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Bill> blist1 = (ArrayList<Bill>) billDao.getCustomerBillList();
+		Bill currentBill = blist.get(0);
+		String max="00/00/0000";
+		for(Bill b : blist) {
+			if(DateUtils.greaterThan(b.getStartDate(), max)) {
+				max=b.getStartDate();
+				currentBill = b;
+			}
+		}
+		System.out.println(currentBill);
+
+		return currentBill;
 	}
 
 	

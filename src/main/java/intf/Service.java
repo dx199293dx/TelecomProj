@@ -3,6 +3,7 @@ package intf;
 import java.util.ArrayList;
 import java.util.List;
 
+import beans.Bill;
 import beans.Customer;
 import beans.CustomerPlan;
 import beans.Employee;
@@ -25,6 +26,7 @@ public interface Service {
 	public List<Issue_CustomerName> getIssueListByName(String name, List<Issue_CustomerName> list);
 
 	public PhonePlanDetails getMyPlan(int id);
+	public List<Bill> getmyBill(String servicenumber);
 
 	public Customer custLogin(String userID, String password);
 	public Customer registrationVal(String servicenumber, String firstName, String lastName);
@@ -32,5 +34,7 @@ public interface Service {
 	public void saveCustomer(Customer c);
 	public ArrayList<PhonePlanDetails> getPhonePlanList();
 	public PhonePlanDetails changePlan(int pid, Customer c);
+	
+	public Bill currentBill(List<Bill> blist);
 
 }

@@ -59,6 +59,10 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Customer Service</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="customerLogout.spring">Logout</a>
+              <!-- <a class="nav-link" href="#">Customer Service</a> -->
+            </li>
           </ul>
         </div>
       </div>
@@ -81,7 +85,7 @@
                                         <li>Data: ${phonePlan.data} GB</li>
                                     </ul>
                                 </div>
-                                <div class="pricingTable-sign-up"><form action="changePlan.spring"><button type="submit" onclick="return changePlan()" name="submit" value="1" class="btn btn-block">Choose</button></form></div>
+                                <div class="pricingTable-sign-up"><form action="changePlan.spring"><button type="submit" onclick="return changePlan()" name="submit" value="${phonePlan.id}" class="btn btn-block">Choose</button></form></div>
                             </div>
                         </div>
                     </c:forEach>
