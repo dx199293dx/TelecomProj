@@ -56,9 +56,15 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Customer Service</a>
             </li>
+<<<<<<< HEAD
             
             <li class="nav-item">
               <a class="nav-link" href="customerLogout.spring">Logout</a>
+=======
+            <li class="nav-item">
+              <a class="nav-link" href="customerLogout.spring">Logout</a>
+              <!-- <a class="nav-link" href="#">Customer Service</a> -->
+>>>>>>> customer1.0
             </li>
           </ul>
         </div>

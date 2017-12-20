@@ -20,7 +20,7 @@
 <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Customer Homepage</a>
+        <a class="navbar-brand" href="#">Telecom Service</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,14 +38,19 @@
               <a class="nav-link" href="getMyPlan.spring">Plan
               <span class="sr-only">(current)</span>
               </a>
-              
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Customer Service</a>
             </li>
+<<<<<<< HEAD
             
             <li class="nav-item">
               <a class="nav-link" href="customerLogout.spring">Logout</a>
+=======
+            <li class="nav-item">
+              <a class="nav-link" href="customerLogout.spring">Logout</a>
+              <!-- <a class="nav-link" href="#">Customer Service</a> -->
+>>>>>>> customer1.0
             </li>
           </ul>
         </div>
@@ -80,7 +85,7 @@
                                             <td >${customer.firstName} ${customer.lastName}</td>
                                         </tr>
                                         <tr>
-                                            <td >Number </td>
+                                            <td >Service Number </td>
                                             <td >${customer.servicenumber} </td>
                                         </tr>
                                         <tr>

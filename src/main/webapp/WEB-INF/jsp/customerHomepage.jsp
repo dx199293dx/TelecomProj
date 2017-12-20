@@ -42,7 +42,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Bill</a>
+              <a class="nav-link" href="getMyBill.spring">Bill</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="getMyPlan.spring">Plan</a>

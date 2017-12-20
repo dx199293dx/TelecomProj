@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import beans.Bill;
 import beans.Customer;
 import beans.PhonePlanDetails;
 
@@ -53,6 +55,15 @@ public class CustomerController {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		PhonePlanDetails ppd = service.changePlan(pid, c);
 		return new ModelAndView("myPlan", "myPlan", ppd);	
+	}
+	
+	@RequestMapping(value="/getMyBill")
+	public ModelAndView getMyBill(HttpServletRequest request) {
+		Customer c = (Customer) request.getSession().getAttribute("customer");
+		ArrayList<Bill> bill = (ArrayList<Bill>) service.getmyBill(c.getServicenumber());
+		Bill currentBill = service.currentBill(bill);
+		System.out.println(currentBill.getStartDate());
+		return new ModelAndView("myBill", "myBill", bill);
 	}
 		
 	@RequestMapping(value="customer")
