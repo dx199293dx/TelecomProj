@@ -1,5 +1,6 @@
 package intf;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import beans.Customer;
@@ -29,5 +30,7 @@ public interface Service {
 	public Customer registrationVal(String servicenumber, String firstName, String lastName);
 	public void addCustomer(Customer c);
 	public void saveCustomer(Customer c);
+	public ArrayList<PhonePlanDetails> getPhonePlanList();
+	public PhonePlanDetails changePlan(int pid, Customer c);
 
 }

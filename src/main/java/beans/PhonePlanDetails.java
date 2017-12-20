@@ -3,30 +3,25 @@ package beans;
 public class PhonePlanDetails {
 
 	private int id;
-	private String firstName;
-	private String lastName;
 	private String type;
+	private String name;
 	private String voice;
 	private String text;
 	private String data;
 	private String price;
-	private String number;
 	public PhonePlanDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public PhonePlanDetails(int id, String firstName, String lastName, String type, String voice, String text,
-			String data, String price, String number) {
+	public PhonePlanDetails(int id, String type, String name, String voice, String text, String data, String price) {
 		super();
 		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
 		this.type = type;
+		this.name = name;
 		this.voice = voice;
 		this.text = text;
 		this.data = data;
 		this.price = price;
-		this.number = number;
 	}
 	public int getId() {
 		return id;
@@ -34,23 +29,17 @@ public class PhonePlanDetails {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getVoice() {
 		return voice;
@@ -76,17 +65,10 @@ public class PhonePlanDetails {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getNumber() {
-		return number;
-	}
-	public void setNumber(String number) {
-		this.number = number;
-	}
 	@Override
 	public String toString() {
-		return "PhonePlanDetails [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", type=" + type
-				+ ", voice=" + voice + ", text=" + text + ", data=" + data + ", price=" + price + ", number=" + number
-				+ "]";
+		return "PhonePlanDetails [id=" + id + ", type=" + type + ", name=" + name + ", voice=" + voice + ", text="
+				+ text + ", data=" + data + ", price=" + price + "]";
 	}
 	
 }
