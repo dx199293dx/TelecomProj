@@ -11,16 +11,12 @@
     <!-- CUSTOM STYLES-->
     <spring:url value="/resources/css/blog-home.css" var="blogHome" />
     <link href="${blogHome}" rel="stylesheet" />
+    
+    <spring:url value="/resources/image/iphone.png" var="iphone" />
 <title>My Plan</title>
 </head>
 <body>
-<%-- ID:<p>${myPlan.id}</p>
-First Name:<p>${myPlan.firstName}</p>
-Last Name:<p>${myPlan.number}</p>
-Type:<p>${myPlan.type}</p>
-Text:<p>${myPlan.text}</p>
-Voice:<p>${myPlan.voice}</p>
-Data:<p>${myPlan.data}</p> --%>
+
 <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -31,15 +27,18 @@ Data:<p>${myPlan.data}</p> --%>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
+              <a class="nav-link" href="customerHomepage.spring">Home
+                
               </a>
             </li>
             <li class="nav-item" >
               <a class="nav-link" href="#">Bill</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="getMyPlan.spring">Plan</a>
+              <a class="nav-link" href="getMyPlan.spring">Plan
+              <span class="sr-only">(current)</span>
+              </a>
+              
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Customer Service</a>
@@ -61,26 +60,27 @@ Data:<p>${myPlan.data}</p> --%>
             <small>Secondary Text</small>
           </h1> -->
           <div class="container" style="margin:10px;">
-        <div class="table-responsive">
+          <div class="panel panel-primary">
+         <div class="table-responsive">
             <table class="table">
                 <tbody>
                     <tr>
-                        <td rowspan="2" >Your Device:<br>
-                        <img class="img-rounded" style="height:300px;background-image:url(&quot;https://my.t-mobile.com/etc/designs/mytmobile/desktop/pageclientlibs/img/Icon_Desktop_Unidentified-Phone_LoRes.png&quot;);width:183px;"></td>
+                        <td rowspan="2" ><h4>Your Device:</h4><br>
+                        <img class="img-rounded" style="height:200px;weight:100px" src="${iphone}"></td>
                         <td>
                             <div class="table-responsive">
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td style="width:100px;">Name </td>
-                                            <td >${myPlan.firstName} ${myPlan.lastName}</td>
+                                            <td >Name </td>
+                                            <td >${customer.firstName} ${customer.lastName}</td>
                                         </tr>
                                         <tr>
                                             <td >Number </td>
-                                            <td >${myPlan.number} </td>
+                                            <td >${customer.servicenumber} </td>
                                         </tr>
                                         <tr>
-                                            <td >Plan </td>
+                                            <td >Plan Type</td>
                                             <td >${myPlan.type}</td>
                                         </tr>
                                     </tbody>
@@ -94,6 +94,10 @@ Data:<p>${myPlan.data}</p> --%>
                                 <table class="table">
 
                                     <tbody>
+                                    	   <tr>
+                                            <td>Plan Name </td>
+                                            <td>${myPlan.name}</td>
+                                        </tr>
                                         <tr>
                                             <td>Text </td>
                                             <td>${myPlan.text}</td>
@@ -123,10 +127,10 @@ Data:<p>${myPlan.data}</p> --%>
                 <tbody>
                     <tr>
                         <td>
-                            <form><button class="btn btn-default btn-block btn-lg" type="button" >Change My Current Plan</button></form>
+                            <form action="planSelection.spring"><button class="btn btn-warning" type="submit" style="width:200px;">Change My Current Plan</button></form>
                         </td>
                         <td>
-                            <form><button class="btn btn-default btn-block btn-lg" type="button" >Add A Plan</button></form>
+                            <form><button class="btn btn-warning" type="button" style="width:200px;">Add A Plan</button></form>
                         </td>
                     </tr>
                 </tbody>
@@ -135,7 +139,7 @@ Data:<p>${myPlan.data}</p> --%>
     </div>
 
         </div>
-
+	</div>
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
         
@@ -186,8 +190,7 @@ Data:<p>${myPlan.data}</p> --%>
 
       </div>
       <!-- /.row -->
-
-    </div>
+	</div>
     <!-- /.container -->
 </body>
 </html>

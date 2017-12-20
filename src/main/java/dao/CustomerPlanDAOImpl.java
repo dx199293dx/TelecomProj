@@ -34,5 +34,11 @@ public class CustomerPlanDAOImpl implements CustomerPlanDAO {
 		}
 		return new CustomerPlan();
 	}
+	@Override
+	public void update(CustomerPlan cp) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(cp);
+	}
 
 }

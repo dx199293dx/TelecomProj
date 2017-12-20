@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +42,19 @@ public class CustomerController {
 		PhonePlanDetails ppd = service.getMyPlan(c.getId());	
 		return new ModelAndView("myPlan", "myPlan", ppd);	
 	}
-	
-	
-	
+	@RequestMapping(value="/planSelection")
+	public ModelAndView changeCurrentPlan(Model model) {
+		ArrayList<PhonePlanDetails> list = service.getPhonePlanList();
+		return new ModelAndView("planSelection","phonePlanList",list);
+	}
+	@RequestMapping(value="/changePlan")
+	public ModelAndView changePlan(HttpServletRequest request) {
+		int pid = Integer.parseInt(request.getParameter("submit"));
+		Customer c = (Customer) request.getSession().getAttribute("customer");
+		PhonePlanDetails ppd = service.changePlan(pid, c);
+		return new ModelAndView("myPlan", "myPlan", ppd);	
+	}
+		
 	@RequestMapping(value="customer")
 	public String customer() {
 		return "customerLogin";
@@ -101,4 +113,8 @@ public class CustomerController {
 		return new ModelAndView("customerLogin");
 	}
 
+	@RequestMapping(value="/customerHomepage")
+	public String customerHomepage() {
+		return "customerHomepage";
+	}
 }

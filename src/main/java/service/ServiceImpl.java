@@ -203,14 +203,12 @@ public class ServiceImpl implements Service {
 		// TODO Auto-generated method stub
 		PhonePlanDetails ppd = new PhonePlanDetails();
 		Customer c = customerDao.getCustomer(id);
-		ppd.setFirstName(c.getFirstName());
-		ppd.setLastName(c.getLastName());
-		ppd.setNumber(c.getServicenumber());
 		CustomerPlan cp = cpDao.getCustomerPlanByNumber(c.getServicenumber());
 		ppd.setId(cp.getId());
 		int pid = cp.getPid();
 		Plan p = planDao.getPlan(pid);
 		ppd.setType(p.getType());
+		ppd.setName(p.getName());
 		ppd.setPrice(p.getPrice());
 		String[] detail = p.getDetails().split(",");
 		ppd.setText(detail[0].substring(5));
@@ -280,6 +278,39 @@ public class ServiceImpl implements Service {
 //		customer.setZip(c.getZip());
 		customerDao.updateCustomer(c);
 		
+	}
+
+	@Override
+	@Transactional
+	public ArrayList<PhonePlanDetails> getPhonePlanList() {
+		// TODO Auto-generated method stub
+		ArrayList<Plan> pList = (ArrayList<Plan>) planDao.getPlanList();
+		ArrayList<PhonePlanDetails> phonePlanList = new ArrayList<>();
+		for(Plan p : pList) {
+			if(p.getType().equals("phone")) {
+				PhonePlanDetails ppd = new PhonePlanDetails();
+				ppd.setId(p.getId());
+				ppd.setType(p.getType());
+				ppd.setName(p.getName());
+				ppd.setPrice(p.getPrice());
+				ppd.setText(p.getDetails().split(",")[0].substring(5));
+				ppd.setVoice(p.getDetails().split(",")[1].substring(6));
+				ppd.setData(p.getDetails().split(",")[2].substring(5));
+				phonePlanList.add(ppd);
+			}
+		}
+
+		return phonePlanList;
+	}
+
+	@Override
+	@Transactional
+	public PhonePlanDetails changePlan(int pid, Customer c) {
+		// TODO Auto-generated method stub
+		CustomerPlan cp = cpDao.getCustomerPlanByNumber(c.getServicenumber());
+		cp.setPid(pid);
+		cpDao.update(cp);
+		return getMyPlan(c.getId());
 	}
 
 	
