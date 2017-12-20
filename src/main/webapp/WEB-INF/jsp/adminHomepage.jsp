@@ -26,18 +26,6 @@
 <title>Admin Homepage</title>
 </head>
 <body>
-<%-- <label>Employee ID: </label><div><c:out value="${employee.id}" /></div>
-	<label>Employee Name: </label><div><c:out value="${employee.name}" /></div>
-	<form action="adminSelection.spring" method="post">
-		<button type="submit" name="submit" value="addEmployee">Add an Employee as Admin</button>
-		<button type="submit" name="submit" value="createNewCustomer">Create New Service</button>
-		<button type="submit" name="submit" value="viewCustomers">View All Customer Details</button>
-		<button type="submit" name="viewIssues">View All Issues</button>
-	</form>
-	<form action="adminLogout.spring">
-	<button type="submit" name="adminLogout">Click to Logout</button>
-	</form>  --%>
-	
 <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">

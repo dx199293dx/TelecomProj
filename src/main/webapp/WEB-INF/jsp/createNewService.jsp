@@ -28,17 +28,6 @@
 <title>Create New Service</title>
 </head>
 <body>
-<%-- <form:form name="createNew" method="post" action="createNewCP.spring" modelAttribute="newCP">
-<form:select path="pid">
-	<form:options items="${planList}" itemValue="id" itemLabel="name"></form:options>
-</form:select><br>
-
-<label>First Name:</label><div><form:input type="text" path="firstName"/></div>
-<label>Last Name:</label><div><form:input type="text" path="lastName"/></div>
-<label>Number:</label><div><form:input type="text" path="number"/></div>
-<button type="submit" name="create">create</button>
-</form:form>
-<a href="rtAdminHP.spring">return</a> --%>
 	<div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">

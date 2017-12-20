@@ -22,15 +22,7 @@
 <title>Customers</title>
 </head>
 <body>
-<%-- <c:forEach var="customer" items="${customerList}">
-	name:<c:out value="${customer.firstName} ${customer.lastName} ${customer.servicenumber}"></c:out><br>
-</c:forEach>
-<form action="customerFilter.spring" method="post">
-<input type="text" name="servicenumber"/>
-<button type="submit" name="submit" value="Search">Search</button>
-<button type="submit" name="submit" value="All">View ALL</button>
-</form>
-<a href="rtAdminHP.spring">return</a> --%>
+
  <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">
