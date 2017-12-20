@@ -45,10 +45,11 @@ public class CustomerController {
 	@RequestMapping(value="/planSelection")
 	public ModelAndView changeCurrentPlan(Model model) {
 		ArrayList<PhonePlanDetails> list = service.getPhonePlanList();
-		model.addAttribute("phonePlan1", list.get(0));
-		model.addAttribute("phonePlan2", list.get(1));
-		model.addAttribute("phonePlan3", list.get(2));
-		return new ModelAndView("planSelection");	
+//		model.addAttribute("phonePlan1", list.get(0));
+//		model.addAttribute("phonePlan2", list.get(1));
+//		model.addAttribute("phonePlan3", list.get(2));
+//		return new ModelAndView("planSelection");	
+		return new ModelAndView("planSelection","phonePlanList",list);
 	}
 	@RequestMapping(value="/changePlan")
 	public ModelAndView changePlan(HttpServletRequest request) {
