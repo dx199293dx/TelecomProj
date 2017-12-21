@@ -28,7 +28,11 @@
 	<div class="collapse navbar-collapse" id="navbarResponsive">
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link"
-				href="customerHomepage.spring">Home </a></li>
+				href="customerHomepage.spring">Home </a>
+			</li>
+			<li class="nav-item">
+              <a class="nav-link" href="myAccount.spring">My Account</a>
+            </li>
 			<li class="nav-item active"><a class="nav-link"
 				href="getMyBill.spring">Bill</a> <span class="sr-only">(current)</span>
 			</li>
@@ -147,9 +151,21 @@
 				</div>
 				</div>
 			</div>
-			<form action = "paymentInfo.spring">
-			<button type="submit" class="btn btn-success">Pay</button>
-			</form>
+			<div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <form action="paymentInfo.spring"><button class="btn btn-warning" type="submit" style="width:200px;">Pay Here</button></form>
+                        </td>
+                        <td>
+                            <form action="customerHomepage.spring"><button class="btn btn-warning" type="submit" style="width:200px;">Return to Home</button></form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+			
 			</div>
 			</div>
 					</body>

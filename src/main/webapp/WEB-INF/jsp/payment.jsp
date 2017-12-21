@@ -190,7 +190,8 @@
 			      </div>
 			      <div class="form-group">
 			        <div class="col-sm-offset-3 col-sm-9">
-			          <button type="submit" class="btn btn-success">Pay Now</button>&nbsp<a href="getMyBill.spring"type="button" class="btn">Cancel</a>
+			        
+			          <button type="submit" class="btn btn-success">Pay Now</button>&nbsp<a href="getMyBill.spring" type="button" class="btn">Cancel</a>
 			        </div>
 			        <!-- <div id="thanks"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary">Contact us</a></p></div> -->
 			      </div>
