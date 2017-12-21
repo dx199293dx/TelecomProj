@@ -126,8 +126,8 @@ public class CustomerController {
 	
 	
 	@RequestMapping(value="/myAccount")
-	public String displayAccount(HttpServletRequest request) {
-		request.getSession();
+	public String displayAccount() {
+		
 		return "customerAccount";	
 	}
 	
