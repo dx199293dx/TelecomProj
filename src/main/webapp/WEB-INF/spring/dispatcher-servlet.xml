@@ -36,14 +36,18 @@
 	<property  name="driverClassName" ><value>com.mysql.jdbc.Driver</value></property>
 
 	
-	<!-- <property  name="url" ><value>jdbc:mysql://10.10.10.71:3306/TelecomProj</value></property>
+	<property  name="url" ><value>jdbc:mysql://10.10.10.71:3306/TelecomProj</value></property>
 
 	<property  name="username"><value>lakshmi</value></property>
-	<property  name="password"><value>telecom</value></property>  -->
+	<property  name="password"><value>telecom</value></property>
 	
-	<property  name="url" ><value>jdbc:mysql://localhost:3306/telecomproj</value></property>
+	<!-- <property  name="url" ><value>jdbc:mysql://localhost:3306/telecomproj</value></property>
 	<property  name="username"><value>root</value></property>
-	<property  name="password"><value></value></property>
+	<property  name="password"><value></value></property> -->
+	
+	<!-- <property  name="url" ><value>jdbc:mysql://localhost:3306/telecomproj</value></property>
+	<property  name="username"><value>root</value></property>
+	<property  name="password"><value>ABCabc123</value></property> -->
 
 
    	</bean>
