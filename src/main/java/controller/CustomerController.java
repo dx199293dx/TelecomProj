@@ -58,11 +58,15 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="/getMyBill")
-	public ModelAndView getMyBill(HttpServletRequest request) {
+	public ModelAndView getMyBill(HttpServletRequest request,Model model) {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		ArrayList<Bill> bill = (ArrayList<Bill>) service.getmyBill(c.getServicenumber());
 		Bill currentBill = service.currentBill(bill);
 		System.out.println(currentBill.getStartDate());
+		System.out.println(currentBill.getEndDate());
+		System.out.println(currentBill.getDueDate());
+		System.out.println(currentBill.getAmount());
+		model.addAttribute("currBill", currentBill);
 		return new ModelAndView("myBill", "myBill", bill);
 	}
 		
