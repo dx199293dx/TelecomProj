@@ -25,4 +25,11 @@ public class BillDAOImpl implements BillDAO {
 		return billList;
 	}
 
+	@Override
+	public void updateBill(Bill bill) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		session.saveOrUpdate(bill);
+	}
+
 }

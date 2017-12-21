@@ -1,11 +1,13 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
 import beans.Bill;
+import beans.CardInfo;
 import beans.Customer;
 import beans.CustomerPlan;
 import beans.Employee;
@@ -351,5 +353,51 @@ public class ServiceImpl implements Service {
 
 		return currentBill;
 	}
+
+	@Override
+	@Transactional
+	public ArrayList<CardInfo> getCardList(int cid) {
+		// TODO Auto-generated method stub
+		ArrayList<CardInfo> list = (ArrayList<CardInfo>) ciDao.getCardInfoList();
+		ArrayList<CardInfo> myCardList = new ArrayList<>();
+		for(CardInfo ci : list) {
+			if(ci.getCid()==cid) {
+				myCardList.add(ci);
+			}
+		}
+		return myCardList;
+	}
+
+	@Override
+	@Transactional
+	public boolean saveCard(String type, String name, String cardNo, String month, String year, String code, int cid) {
+		// TODO Auto-generated method stub
+		String expireDate = month+"/"+year;
+		HashSet<String> set = new HashSet<>();
+		for(CardInfo ci : getCardList(cid)) {
+			set.add(ci.getCardNo());
+		}
+		if(!set.contains(cardNo)) {
+			CardInfo card = new CardInfo();
+			card.setCardNo(cardNo);
+			card.setName(name);
+			card.setExpireDate(expireDate);
+			card.setType(type);
+			card.setCode(code);
+			card.setCid(cid);
+			ciDao.addCardInfo(card);
+		}
+		return true;
+	}
+
+	@Override
+	@Transactional
+	public void pay(Bill bill) {
+		// TODO Auto-generated method stub
+		bill.setPaid(bill.getAmount());
+		billDao.updateBill(bill);
+	}
+
+	
 
 }

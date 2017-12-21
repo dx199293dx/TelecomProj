@@ -31,6 +31,9 @@
                 
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="myAccount.spring">My Account</a>
+            </li>
             <li class="nav-item" >
               <a class="nav-link" href="getMyBill.spring">Bill</a>
             </li>

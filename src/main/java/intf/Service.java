@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import beans.Bill;
+import beans.CardInfo;
 import beans.Customer;
 import beans.CustomerPlan;
 import beans.Employee;
@@ -37,5 +38,8 @@ public interface Service {
 	
 	public List<Bill> getmyBill(String servicenumber);
 	public Bill currentBill(List<Bill> blist);
+	public ArrayList<CardInfo> getCardList(int cid);
+	public boolean saveCard(String type, String name, String cardNo, String month, String year, String code, int cid);
+	public void pay(Bill bill);
 
 }
