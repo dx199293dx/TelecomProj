@@ -6,6 +6,7 @@ import java.util.List;
 import beans.Bill;
 import beans.CardInfo;
 import beans.Customer;
+import beans.CustomerFieldCanBeNull;
 import beans.CustomerPlan;
 import beans.Employee;
 import beans.Issue;
@@ -33,7 +34,7 @@ public interface Service {
 	
 	public Customer custLogin(String userID, String password);
 	public Customer registrationVal(String servicenumber, String firstName, String lastName);
-	public void addCustomer(Customer c);
+	public void addCustomer(CustomerFieldCanBeNull c);
 	public void saveCustomer(Customer c);
 	
 	public List<Bill> getmyBill(String servicenumber);
@@ -41,5 +42,6 @@ public interface Service {
 	public ArrayList<CardInfo> getCardList(int cid);
 	public boolean saveCard(String type, String name, String cardNo, String month, String year, String code, int cid);
 	public void pay(Bill bill);
+
 
 }

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import beans.Bill;
 import beans.CardInfo;
 import beans.Customer;
+import beans.CustomerFieldCanBeNull;
 import beans.CustomerPlan;
 import beans.Employee;
 import beans.Issue;
@@ -97,20 +98,11 @@ public class ServiceImpl implements Service {
 	@Transactional
 	public void addCustomerPlan(CustomerPlan cp) {
 		// TODO Auto-generated method stub
-		Customer c = new Customer();
+		CustomerFieldCanBeNull c = new CustomerFieldCanBeNull();
 		c.setFirstName(cp.getFirstName());
 		c.setLastName(cp.getLastName());
 		c.setServicenumber(cp.getNumber());
-		c.setEmail("email@email.com");
-		c.setDob("mm/dd/yyyy");
-		c.setPhone("Phone");
-		c.setSsn("SSN");
-		c.setStreet("Street");
-		c.setCity("City");
-		c.setState("State");
-		c.setZip("09863");
-		c.setUserID("User ID");
-		c.setPassword("000000");
+
 		int cid = customerDao.addCusteomer(c);
 		cp.setCid(cid);
 		cpDao.addCustomerPlan(cp);
@@ -260,7 +252,7 @@ public class ServiceImpl implements Service {
 
 	@Override
 	@Transactional
-	public void addCustomer(Customer c) {
+	public void addCustomer(CustomerFieldCanBeNull c) {
 		// TODO Auto-generated method stub
 		customerDao.addCusteomer(c);
 		

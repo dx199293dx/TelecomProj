@@ -1,67 +1,49 @@
 package beans;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="customer")
-public class Customer implements Serializable{
+public class CustomerFieldCanBeNull {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	@NotBlank(message="user ID cant be empty")
+
 	private String userID;
 	@Size(min=2, max=30, message="first name must have atleast 2 characters")
 	private String firstName;
 	@Size(min=1, max=30, message="last name must have atleast 2 characters")
 	private String lastName;
-	@NotBlank(message="email cant be empty")
-	@Email
 	private String email;
-	@NotBlank(message="phone can't be empty")
 	private String phone;
-	@NotBlank(message="ssn can't be empty")
-	@Size(min=9,max=9)
 	private String ssn;
-	@NotBlank(message="dob can't be empty")
-	@Pattern(message="please check the format",regexp = "^((0?[13578]|10|12)(-|\\/)(([1-9])|(0[1-9])|([12])([0-9]?)|(3[01]?))(-|\\/)((19)([2-9])(\\d{1})|(20)([01])(\\d{1})|([8901])(\\d{1}))|(0?[2469]|11)(-|\\/)(([1-9])|(0[1-9])|([12])([0-9]?)|(3[0]?))(-|\\/)((19)([2-9])(\\d{1})|(20)([01])(\\d{1})|([8901])(\\d{1})))$")
 	private String dob;
-	@NotBlank(message="street can't be empty")
 	private String street;
-	@NotBlank(message="city can't be empty")
 	private String city;
-	@NotBlank(message="state can't be empty")
 	private String state;
-	@NotBlank @Min(5)
 	private String zip;
-	@NotBlank(message="password cant be empty")
 	private String password;
 	@NotBlank(message="service number must contain atleast 4 chars") @Min(4)
 	private String servicenumber;
-	
-	
-	public Customer() {
+	public CustomerFieldCanBeNull() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Customer(int id, String userID, String firstName, String lastName, String email, String phone, String ssn,
-			String dob, String street, String city, String state, String zip, String password) {
+	public CustomerFieldCanBeNull(int id, String userID, String firstName, String lastName, String email, String phone,
+			String ssn, String dob, String street, String city, String state, String zip, String password,
+			String servicenumber) {
+		super();
 		this.id = id;
 		this.userID = userID;
 		this.firstName = firstName;
@@ -75,6 +57,7 @@ public class Customer implements Serializable{
 		this.state = state;
 		this.zip = zip;
 		this.password = password;
+		this.servicenumber = servicenumber;
 	}
 	public int getId() {
 		return id;
@@ -154,21 +137,18 @@ public class Customer implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public String getServicenumber() {
 		return servicenumber;
 	}
-
 	public void setServicenumber(String servicenumber) {
 		this.servicenumber = servicenumber;
 	}
-
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", userID=" + userID + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + ", phone=" + phone + ", ssn=" + ssn + ", dob=" + dob + ", street=" + street
-				+ ", city=" + city + ", state=" + state + ", zip=" + zip + ", password=" + password + ", servicenumber="
-				+ servicenumber + "]";
+		return "CustomerFieldCanBeNull [id=" + id + ", userID=" + userID + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + ", phone=" + phone + ", ssn=" + ssn + ", dob=" + dob + ", street="
+				+ street + ", city=" + city + ", state=" + state + ", zip=" + zip + ", password=" + password
+				+ ", servicenumber=" + servicenumber + "]";
 	}
 	
 }

@@ -164,5 +164,8 @@ public class CustomerController {
 		return "payError";
 //		return "redirect:/getMyBill.spring";
 	}
-	
+	@RequestMapping(value="editAccount")
+	public String editAccount() {
+		return "success";
+	}
 }
