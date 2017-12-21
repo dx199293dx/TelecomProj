@@ -352,6 +352,4 @@ public class ServiceImpl implements Service {
 		return currentBill;
 	}
 
-	
-
 }

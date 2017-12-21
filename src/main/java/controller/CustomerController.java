@@ -49,6 +49,7 @@ public class CustomerController {
 		ArrayList<PhonePlanDetails> list = service.getPhonePlanList();
 		return new ModelAndView("planSelection","phonePlanList",list);
 	}
+	
 	@RequestMapping(value="/changePlan")
 	public ModelAndView changePlan(HttpServletRequest request) {
 		int pid = Integer.parseInt(request.getParameter("submit"));
@@ -121,6 +122,13 @@ public class CustomerController {
 			return new ModelAndView("customerHomepage");
 		}
 		
+	}
+	
+	
+	@RequestMapping(value="/myAccount")
+	public String displayAccount(HttpServletRequest request) {
+		request.getSession();
+		return "customerAccount";	
 	}
 	
 	@RequestMapping(value="/customerLogout")
