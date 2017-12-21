@@ -58,6 +58,7 @@
     <list>
     <value>beans.Employee</value>
     <value>beans.Customer</value>
+    <value>beans.CustomerFieldCanBeNull</value>
     <value>beans.Plan</value>
     <value>beans.CustomerPlan</value>
     <value>beans.CardInfo</value>

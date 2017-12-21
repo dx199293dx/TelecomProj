@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>  
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -47,6 +48,42 @@
     		}
 
     		 function payment(){
+    			 var type=document.forms["myForm"]["card-type"].value;
+    			 var name=document.forms["myForm"]["card-holder-name"].value;
+    			 var number=document.forms["myForm"]["card-number"].value;
+    			 var month=document.getElementById("expiry-month").value;
+    			 var year=document.getElementById("expiry-year").value;
+    			 var cvv=document.forms["myForm"]["cvv"].value;
+    			 if(type==""){
+    				 document.getElementById("typeError").innerHTML="Card type cannot be empty"
+    				 return false;
+    			 }else{
+    				 document.getElementById("typeError").innerHTML=""
+    			 }
+    			 if(name==""){
+    				 document.getElementById("nameError").innerHTML="Card holder name cannot be empty"
+    				 return false;
+    			 }else{
+    				 document.getElementById("nameError").innerHTML=""			 
+    			 }
+    			 if(number==""){
+    				 document.getElementById("numberError").innerHTML="Card number cannot be empty"
+    				 return false;
+    			 }else{
+    				 document.getElementById("numberError").innerHTML=""
+    			 }
+    			 if(month==""||year==""){
+    				 document.getElementById("dateError").innerHTML="Selectthe expire date"
+    				 return false;
+    			 }else{
+    				 document.getElementById("dateError").innerHTML=""
+    			 }
+    			 if(cvv==""){
+    				 document.getElementById("cvvError").innerHTML="Please input cvv number"
+    				 return false;
+    			 }else{
+    				 document.getElementById("cvvError").innerHTML=""
+    			 }
     			 var r = confirm("Are you willing to PAY THIS BILL?")
     			 if(r==true)
     				 return true;
@@ -108,7 +145,7 @@
 	        		<div class="centered title"><h2>Checkout.</h2></div>
 	        </div>
 			<div class="container">
-			  <form class="form-horizontal" action="pay.spring" method="post" onsubmit="return payment()" id="myForm">
+			  <form class="form-horizontal" action="pay.spring" method="post" onsubmit="return payment()" id="myForm" name="myForm">
 			  
 			  <div>
 			  </div>
@@ -130,18 +167,21 @@
 			        <label class="col-sm-3 control-label" for="card-holder-name">Card Type</label>
 			        <div class="col-sm-9">
 			          <input type="text" class="form-control" name="card-type" id="card-type" placeholder="Card Type">
+			          <span id="typeError" style="color:red;"></span>
 			        </div>
 			      </div>
 				  <div class="form-group">
 			        <label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
 			        <div class="col-sm-9">
 			          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
+			          <span id="nameError" style="color:red;"></span>
 			        </div>
 			      </div>
 			      <div class="form-group">
 			        <label class="col-sm-3 control-label" for="card-number">Card Number</label>
 			        <div class="col-sm-9">
 			          <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
+			          <span id="numberError" style="color:red;"></span>
 			        </div>
 			      </div>
 			      <div class="form-group">
@@ -150,7 +190,7 @@
 			          <div class="row" style="margin-left:0px;">
 			            <div class="col-xs-3">
 			              <select class="form-control " name="expiry-month" id="expiry-month" >
-			                <option>Month</option>
+			                <option value="">Month</option>
 			                <option value="01">Jan (01)</option>
 			                <option value="02">Feb (02)</option>
 			                <option value="03">Mar (03)</option>
@@ -166,7 +206,8 @@
 			              </select>
 			            </div>
 			            <div class="col-xs-3">
-			              <select class="form-control" name="expiry-year">
+			              <select class="form-control" name="expiry-year" id="expiry-year">
+			              	<option value="">Year</option>
 			                <option value="17">2017</option>
 			                <option value="18">2018</option>
 			                <option value="19">2019</option>
@@ -179,13 +220,16 @@
 			                <option value="26">2026</option>
 			              </select>
 			            </div>
+			            
 			          </div>
+			          <span id="dateError" style="color:red;"></span>
 			        </div>
 			      </div>
 			      <div class="form-group">
 			        <label class="col-sm-3 control-label" for="cvv">Card CVV</label>
 			        <div class="col-sm-3">
 			          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code" style="width:150px">
+			          <span id="cvvError" style="color:red;"></span>
 			        </div>
 			      </div>
 			      <div class="form-group">

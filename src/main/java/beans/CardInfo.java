@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="cardInfo")
@@ -13,10 +14,15 @@ public class CardInfo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	@NotNull(message="Card Type cannot be blank")
 	private String type;
+	@NotNull(message="Name cannot be blank")
 	private String name;
+	@NotNull(message="Choose the date")
 	private String expireDate;
+	@NotNull(message="Card Number cannot be blank")
 	private String cardNo;
+	@NotNull(message="Input the sercurity code")
 	private String code;
 	private int cid;
 	public CardInfo() {

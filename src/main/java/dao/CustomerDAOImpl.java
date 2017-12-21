@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import beans.Customer;
+import beans.CustomerFieldCanBeNull;
 import intf.CustomerDAO;
 
 public class CustomerDAOImpl implements CustomerDAO {
@@ -16,7 +17,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public int addCusteomer(Customer c) {
+	public int addCusteomer(CustomerFieldCanBeNull c) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		int id = (int) session.save(c);
