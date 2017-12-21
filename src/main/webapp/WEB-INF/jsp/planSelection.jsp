@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- BOOTSTRAP STYLES-->
+	<!-- BOOTSTRAP STYLES-->
     <spring:url value="/resources/css/bootstrap.min.css" var="homepageBoot" />
     <link href="${homepageBoot}" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -19,6 +19,8 @@
     <link href="${blogHome}" rel="stylesheet" />
     <link href="${pt01}" rel="stylesheet" />
     <link href="${pt011}" rel="stylesheet" />
+
+    
     
     <!--  script  -->
 	<script type="text/javascript">
@@ -48,7 +50,7 @@
               </a>
             </li>
             <li class="nav-item" >
-              <a class="nav-link" href="#">Bill</a>
+              <a class="nav-link" href="getMyBill.spring">Bill</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="getMyPlan.spring">Plan
@@ -59,9 +61,10 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Customer Service</a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="customerLogout.spring">Logout</a>
-              <!-- <a class="nav-link" href="#">Customer Service</a> -->
+
             </li>
           </ul>
         </div>

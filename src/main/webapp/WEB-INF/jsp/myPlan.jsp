@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<!-- BOOTSTRAP STYLES-->
+  <!-- BOOTSTRAP STYLES-->
     <spring:url value="/resources/css/bootstrap.min.css" var="homepageBoot" />
     <link href="${homepageBoot}" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
@@ -42,9 +42,10 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Customer Service</a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="customerLogout.spring">Logout</a>
-              <!-- <a class="nav-link" href="#">Customer Service</a> -->
+
             </li>
           </ul>
         </div>
@@ -97,7 +98,7 @@
                                 <table class="table">
 
                                     <tbody>
-                                    	   <tr>
+                                         <tr>
                                             <td>Plan Name </td>
                                             <td>${myPlan.name}</td>
                                         </tr>
@@ -142,7 +143,7 @@
     </div>
 
         </div>
-	</div>
+  </div>
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
         
@@ -193,7 +194,7 @@
 
       </div>
       <!-- /.row -->
-	</div>
+  </div>
     <!-- /.container -->
 </body>
 </html>

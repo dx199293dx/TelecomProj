@@ -62,6 +62,7 @@ public class CustomerController {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		ArrayList<Bill> bill = (ArrayList<Bill>) service.getmyBill(c.getServicenumber());
 		Bill currentBill = service.currentBill(bill);
+		model.addAttribute("currBill",currentBill);
 		System.out.println(currentBill.getStartDate());
 		System.out.println(currentBill.getEndDate());
 		System.out.println(currentBill.getDueDate());
@@ -132,4 +133,13 @@ public class CustomerController {
 	public String customerHomepage() {
 		return "customerHomepage";
 	}
+//	@RequestMapping(value="/getMyBill")
+//	public String customerBill() {
+//		return "myBill";
+//	}
+	@RequestMapping(value="/paymentInfo")
+	public ModelAndView paymentInfo() {
+		return new ModelAndView("payment");
+	}
+	
 }
