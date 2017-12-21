@@ -18,11 +18,13 @@ public class Bill {
 	private String endDate;
 	private String dueDate;
 	private String amount;
+	private String paid;
 	public Bill() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Bill(int id, String servicenumber, String startDate, String endDate, String dueDate, String amount) {
+	public Bill(int id, String servicenumber, String startDate, String endDate, String dueDate, String amount,
+			String paid) {
 		super();
 		this.id = id;
 		this.servicenumber = servicenumber;
@@ -30,6 +32,7 @@ public class Bill {
 		this.endDate = endDate;
 		this.dueDate = dueDate;
 		this.amount = amount;
+		this.paid = paid;
 	}
 	public int getId() {
 		return id;
@@ -67,10 +70,17 @@ public class Bill {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
+	public String getPaid() {
+		return paid;
+	}
+	public void setPaid(String paid) {
+		this.paid = paid;
+	}
 	@Override
 	public String toString() {
 		return "Bill [id=" + id + ", servicenumber=" + servicenumber + ", startDate=" + startDate + ", endDate="
-				+ endDate + ", dueDate=" + dueDate + ", amount=" + amount + "]";
+				+ endDate + ", dueDate=" + dueDate + ", amount=" + amount + ", paid=" + paid + "]";
 	}
+	
 	
 }

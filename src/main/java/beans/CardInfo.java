@@ -18,14 +18,12 @@ public class CardInfo {
 	private String expireDate;
 	private String cardNo;
 	private String code;
+	private int cid;
 	public CardInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CardInfo(int id, String type, String name, String expireDate, String cardNo,
-			String code) {
-		
-		//abc
+	public CardInfo(int id, String type, String name, String expireDate, String cardNo, String code, int cid) {
 		super();
 		this.id = id;
 		this.type = type;
@@ -33,6 +31,7 @@ public class CardInfo {
 		this.expireDate = expireDate;
 		this.cardNo = cardNo;
 		this.code = code;
+		this.cid = cid;
 	}
 	public int getId() {
 		return id;
@@ -70,11 +69,17 @@ public class CardInfo {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	public int getCid() {
+		return cid;
+	}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
 	@Override
 	public String toString() {
 		return "CardInfo [id=" + id + ", type=" + type + ", name=" + name + ", expireDate=" + expireDate + ", cardNo="
-				+ cardNo + ", code=" + code + "]";
+				+ cardNo + ", code=" + code + ", cid=" + cid + "]";
 	}
-
+	
 	
 }

@@ -7,6 +7,6 @@ import beans.Bill;
 public interface BillDAO {
 	
 	public List<Bill> getCustomerBillList();
-	
+	public void updateBill(Bill bill);
 
 }

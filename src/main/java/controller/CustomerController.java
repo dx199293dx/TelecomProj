@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import beans.Bill;
+import beans.CardInfo;
 import beans.Customer;
 import beans.PhonePlanDetails;
 
@@ -62,7 +63,8 @@ public class CustomerController {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		ArrayList<Bill> bill = (ArrayList<Bill>) service.getmyBill(c.getServicenumber());
 		Bill currentBill = service.currentBill(bill);
-		model.addAttribute("currBill",currentBill);
+//		model.addAttribute("currBill",currentBill);
+		request.getSession().setAttribute("currBill", currentBill);
 		System.out.println(currentBill.getStartDate());
 		return new ModelAndView("myBill", "myBill", bill);
 	}
@@ -129,13 +131,26 @@ public class CustomerController {
 	public String customerHomepage() {
 		return "customerHomepage";
 	}
-//	@RequestMapping(value="/getMyBill")
-//	public String customerBill() {
-//		return "myBill";
-//	}
+
 	@RequestMapping(value="/paymentInfo")
-	public ModelAndView paymentInfo() {
-		return new ModelAndView("payment");
+	public ModelAndView paymentInfo(HttpServletRequest request) {
+		Customer c = (Customer) request.getSession().getAttribute("customer");
+		ArrayList<CardInfo> cardList = service.getCardList(c.getId());
+		return new ModelAndView("payment","cardList",cardList);
+	}
+	@RequestMapping(value="/pay")
+	public String pay(@RequestParam("card-type") String type,@RequestParam("card-holder-name") String name, 
+			@RequestParam("card-number") String cardNo,@RequestParam("expiry-month") String month,@RequestParam("expiry-year") String year,
+			@RequestParam("cvv") String code,HttpServletRequest request) {
+		Customer c = (Customer) request.getSession().getAttribute("customer");
+		int cid = c.getId();
+		if(service.saveCard(type,name,cardNo,month,year,code,cid)) {
+			Bill bill = (Bill) request.getSession().getAttribute("currBill");
+			service.pay(bill);
+			return "redirect:/getMyBill.spring";
+		}
+		return "payError";
+//		return "redirect:/getMyBill.spring";
 	}
 	
 }

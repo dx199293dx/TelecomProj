@@ -1,9 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>    
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>  
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- jquery -->
+	<spring:url value="/resources/js/jquery.min.css" var="payjquery" />
+    <script src="${ payjquery}"></script>
+    <spring:url value="/resources/js/bootstrap.min.css" var="paybootsjs" />
+    <script src="${paybootsjs}"></script>
 	<!-- BOOTSTRAP STYLES-->
     <spring:url value="/resources/css/bootstrap.min.css" var="homepageBoot" />
     <link href="${homepageBoot}" rel="stylesheet" />
@@ -15,6 +21,43 @@
 
 	<spring:url value="/resources/css/paymentstyle.css" var="pstyle" />
     <link href="${pstyle}" rel="stylesheet" />
+    
+    <spring:url value="/resources/css/Pricing-Table-Style-01.css" var="pt01" />
+     <spring:url value="/resources/css/Pricing-Table-Style-011.css" var="pt011" />
+    <link href="${pt01}" rel="stylesheet" />
+    <link href="${pt011}" rel="stylesheet" />
+    
+    <script>
+    		function selectedCard(){
+    			var x = document.getElementById("selectBox").value;
+    			if(x!=""){
+    				var numNameType = x.split(":");
+        			var name=numNameType[1];
+        			var num=numNameType[0];
+        			var type=numNameType[2];
+        			document.getElementById("card-holder-name").value=name;
+        			document.getElementById("card-number").value=num;
+        			document.getElementById("card-type").value=type;
+    			}else{
+
+        			document.getElementById("card-holder-name").value="";
+        			document.getElementById("card-number").value="";
+        			document.getElementById("card-type").value="";
+    			}		
+    		}
+
+    		 function payment(){
+    			 var r = confirm("Are you willing to PAY THIS BILL?")
+    			 if(r==true)
+    				 return true;
+    			 else
+    				 return false;
+    		 }
+    		$('#myForm').on('submit', function(e){
+    			  $('#myModal').modal('show');
+    			  e.preventDefault();
+    			});
+    </script>
 
 <title>Payment Info</title>
 </head>
@@ -65,14 +108,31 @@
 	        		<div class="centered title"><h2>Checkout.</h2></div>
 	        </div>
 			<div class="container">
-			  <form class="form-horizontal">
+			  <form class="form-horizontal" action="pay.spring" method="post" onsubmit="return payment()" id="myForm">
+			  
 			  <div>
 			  </div>
 			    <fieldset>
 			      <legend>Payment</legend>
 			     			      
 			      <div class="form-group">
-			      <label class="col-sm control-label">Address: ${customer.street}, ${customer.city}, ${customer.state} ${customer.zip}</label><br>
+			       <label class="col-sm control-label">Address: ${customer.street}, ${customer.city}, ${customer.state} ${customer.zip}</label><br>
+	      			<div class="col-md-4 selectContainer">
+	      			<select id="selectBox" onchange="selectedCard();" class="form-control selectpicker" style="width:300px">
+	      					<option value="">-------------Select a card-------------</option>
+    						<c:forEach var="card" items="${cardList}" >
+    							<option value="${card.cardNo}:${card.name}:${card.type}">${card.type}************${card.cardNo.substring(card.cardNo.length()-4)}</option>
+    						</c:forEach>  					
+				    </select>
+				    </div>
+				  </div>
+				  <div class="form-group">
+			        <label class="col-sm-3 control-label" for="card-holder-name">Card Type</label>
+			        <div class="col-sm-9">
+			          <input type="text" class="form-control" name="card-type" id="card-type" placeholder="Card Type">
+			        </div>
+			      </div>
+				  <div class="form-group">
 			        <label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
 			        <div class="col-sm-9">
 			          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
@@ -130,8 +190,9 @@
 			      </div>
 			      <div class="form-group">
 			        <div class="col-sm-offset-3 col-sm-9">
-			          <button type="button" class="btn btn-success">Pay Now</button>&nbsp<a href="getMyBill.spring"type="button" class="btn">Cancel</a>
+			          <button type="submit" class="btn btn-success">Pay Now</button>&nbsp<a href="getMyBill.spring"type="button" class="btn">Cancel</a>
 			        </div>
+			        <!-- <div id="thanks"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary">Contact us</a></p></div> -->
 			      </div>
 			    </fieldset>
 			  </form>
@@ -140,47 +201,16 @@
 		</div>
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
-        
-          <!-- Categories Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">Web Design</a>
-                    </li>
-                    <li>
-                      <a href="#">HTML</a>
-                    </li>
-                    <li>
-                      <a href="#">Freebies</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">JavaScript</a>
-                    </li>
-                    <li>
-                      <a href="#">CSS</a>
-                    </li>
-                    <li>
-                      <a href="#">Tutorials</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+       
 
           <!-- Side Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Side Widget</h5>
+            <h5 class="card-header">Payment Amount</h5>
             <div class="card-body">
-              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            
+             <span class="price-value" style="color:#0e049b;"><i class="fa fa-usd"></i><span style="color:#0e049b;">${currBill.paid}</span></span>&nbsp&nbsp&nbsp<span>Paid</span><br><br>
+              <span class="price-value" style="color:#0e049b;"><i class="fa fa-usd"></i><span style="color:#0e049b;">${currBill.amount-currBill.paid}</span></span>&nbsp&nbsp<span>Remain</span><br><br>
+              <span>Due: ${currBill.dueDate}</span>
             </div>
           </div>
 
@@ -189,6 +219,49 @@
       </div>
       <!-- /.row -->
 	</div>
-
+<!--  <div id="form-content" class="modal hide fade in" style="display: none; ">
+        <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>Contact us</h3>
+        </div>
+	<div>
+		<form class="contact">
+		<fieldset>
+	         <div class="modal-body">
+	        	 <ul class="nav nav-list">
+			<li class="nav-header">Name</li>
+			<li><input class="input-xlarge" value=" krizna" type="text" name="name"></li>
+			<li class="nav-header">Email</li>
+			<li><input class="input-xlarge" value=" user@krizna.com" type="text" name="Email"></li>
+			<li class="nav-header">Message</li>
+			<li><textarea class="input-xlarge" name="sug" rows="3"> Thanks for the article and demo
+			</textarea></li>
+			</ul> 
+	        </div>
+		</fieldset>
+		</form>
+	</div>
+     <div class="modal-footer">
+         <button class="btn btn-success" id="submit">submit</button>
+         <a href="#" class="btn" data-dismiss="modal">Close</a>
+ 		</div>
+</div> -->
+<!-- <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>/.modal-content
+  </div>/.modal-dialog
+</div>/.modal -->
 </body>
 </html>
