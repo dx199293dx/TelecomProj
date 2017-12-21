@@ -14,7 +14,12 @@
      <link href="${adminHomeFontCss}" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
     <spring:url value="/resources/css/blog-home.css" var="blogHome" />
+    <spring:url value="/resources/css/Pricing-Table-Style-01.css" var="pt01" />
+     <spring:url value="/resources/css/Pricing-Table-Style-011.css" var="pt011" />
     <link href="${blogHome}" rel="stylesheet" />
+    <link href="${pt01}" rel="stylesheet" />
+    <link href="${pt011}" rel="stylesheet" />
+
     
     
     <!--  script  -->
@@ -56,15 +61,10 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Customer Service</a>
             </li>
-<<<<<<< HEAD
-            
+
             <li class="nav-item">
               <a class="nav-link" href="customerLogout.spring">Logout</a>
-=======
-            <li class="nav-item">
-              <a class="nav-link" href="customerLogout.spring">Logout</a>
-              <!-- <a class="nav-link" href="#">Customer Service</a> -->
->>>>>>> customer1.0
+
             </li>
           </ul>
         </div>

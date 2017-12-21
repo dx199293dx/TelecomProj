@@ -58,10 +58,11 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="/getMyBill")
-	public ModelAndView getMyBill(HttpServletRequest request) {
+	public ModelAndView getMyBill(HttpServletRequest request,Model model) {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		ArrayList<Bill> bill = (ArrayList<Bill>) service.getmyBill(c.getServicenumber());
 		Bill currentBill = service.currentBill(bill);
+		model.addAttribute("currBill",currentBill);
 		System.out.println(currentBill.getStartDate());
 		return new ModelAndView("myBill", "myBill", bill);
 	}
@@ -128,10 +129,10 @@ public class CustomerController {
 	public String customerHomepage() {
 		return "customerHomepage";
 	}
-	@RequestMapping(value="/getMyBill")
-	public String customerBill() {
-		return "myBill";
-	}
+//	@RequestMapping(value="/getMyBill")
+//	public String customerBill() {
+//		return "myBill";
+//	}
 	@RequestMapping(value="/paymentInfo")
 	public ModelAndView paymentInfo() {
 		return new ModelAndView("payment");

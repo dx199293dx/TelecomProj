@@ -34,14 +34,8 @@
 
 	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
 	<property  name="driverClassName" ><value>com.mysql.jdbc.Driver</value></property>
+	<property  name="url" ><value>jdbc:mysql://192.168.1.197:3306/TelecomProj</value></property>
 
-<<<<<<< HEAD
-
-	<!-- <property  name="url" ><value>jdbc:mysql://10.10.10.71:3306/TelecomProj</value></property>
-	jdbc:mysql://localhost:3306/telecomproj
-=======
-	<property  name="url" ><value>jdbc:mysql://10.10.10.71:3306/TelecomProj</value></property>
->>>>>>> customer1.0
 	<property  name="username"><value>lakshmi</value></property>
 	<property  name="password"><value>telecom</value></property>
 	
