@@ -17,6 +17,7 @@ public interface Service {
 	public Employee employeeLogin(String userID, String password);
 	public void addEmployee(Employee e);
 	public void addCustomerPlan(CustomerPlan cp);
+	
 	public List<Employee> employeeList();	
 	public List<Plan> getPlanList();	
 	public List<Customer> getCustomerList();
@@ -27,15 +28,15 @@ public interface Service {
 	public List<Issue_CustomerName> getIssueListByName(String name, List<Issue_CustomerName> list);
 
 	public PhonePlanDetails getMyPlan(int id);
-	public List<Bill> getmyBill(String servicenumber);
-
+	public PhonePlanDetails changePlan(int pid, Customer c);
+	public ArrayList<PhonePlanDetails> getPhonePlanList();
+	
 	public Customer custLogin(String userID, String password);
 	public Customer registrationVal(String servicenumber, String firstName, String lastName);
 	public void addCustomer(Customer c);
 	public void saveCustomer(Customer c);
-	public ArrayList<PhonePlanDetails> getPhonePlanList();
-	public PhonePlanDetails changePlan(int pid, Customer c);
 	
+	public List<Bill> getmyBill(String servicenumber);
 	public Bill currentBill(List<Bill> blist);
 	public ArrayList<CardInfo> getCardList(int cid);
 	public boolean saveCard(String type, String name, String cardNo, String month, String year, String code, int cid);

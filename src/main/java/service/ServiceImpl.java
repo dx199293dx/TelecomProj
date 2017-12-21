@@ -354,6 +354,7 @@ public class ServiceImpl implements Service {
 		return currentBill;
 	}
 
+<<<<<<< HEAD
 	@Override
 	@Transactional
 	public ArrayList<CardInfo> getCardList(int cid) {
@@ -400,4 +401,6 @@ public class ServiceImpl implements Service {
 
 	
 
+=======
+>>>>>>> customer1.0
 }

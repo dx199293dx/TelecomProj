@@ -50,6 +50,7 @@ public class CustomerController {
 		ArrayList<PhonePlanDetails> list = service.getPhonePlanList();
 		return new ModelAndView("planSelection","phonePlanList",list);
 	}
+	
 	@RequestMapping(value="/changePlan")
 	public ModelAndView changePlan(HttpServletRequest request) {
 		int pid = Integer.parseInt(request.getParameter("submit"));
@@ -66,6 +67,10 @@ public class CustomerController {
 //		model.addAttribute("currBill",currentBill);
 		request.getSession().setAttribute("currBill", currentBill);
 		System.out.println(currentBill.getStartDate());
+		System.out.println(currentBill.getEndDate());
+		System.out.println(currentBill.getDueDate());
+		System.out.println(currentBill.getAmount());
+		model.addAttribute("currBill", currentBill);
 		return new ModelAndView("myBill", "myBill", bill);
 	}
 		
@@ -119,6 +124,13 @@ public class CustomerController {
 			return new ModelAndView("customerHomepage");
 		}
 		
+	}
+	
+	
+	@RequestMapping(value="/myAccount")
+	public String displayAccount(HttpServletRequest request) {
+		request.getSession();
+		return "customerAccount";	
 	}
 	
 	@RequestMapping(value="/customerLogout")
