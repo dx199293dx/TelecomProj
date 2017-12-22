@@ -384,10 +384,11 @@ public class ServiceImpl implements Service {
 
 	@Override
 	@Transactional
-	public void pay(Bill bill) {
+	public String pay(Bill bill) {
 		// TODO Auto-generated method stub
 		bill.setPaid(bill.getAmount());
 		billDao.updateBill(bill);
+		return "success";
 	}
 
 	@Override
