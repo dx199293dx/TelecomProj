@@ -61,9 +61,7 @@
 		<!-- Blog Entries Column -->
 		<div class="col-md-8">
 
-			<!-- <h1 class="my-4">Page Heading
-            <small>Secondary Text</small>
-          </h1> -->
+			
 			<div class="container" style="margin: 10px;">
 				<div class="panel panel-primary">
 					<div class="table-responsive">
@@ -156,10 +154,10 @@
                 <tbody>
                     <tr>
                         <td>
-                            <form action="paymentInfo.spring"><button class="btn btn-warning" type="submit" style="width:200px;">Pay Here</button></form>
+                            <form action="paymentInfo.spring"><button class="btn btn-warning" type="submit" style="width:300px;">Pay Here</button></form>
                         </td>
                         <td>
-                            <form action="customerHomepage.spring"><button class="btn btn-warning" type="submit" style="width:200px;">Return to Home</button></form>
+                            <form action="customerHomepage.spring"><button class="btn btn-warning" type="submit" style="width:300px;">Return to Home</button></form>
                         </td>
                     </tr>
                 </tbody>

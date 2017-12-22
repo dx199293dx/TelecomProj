@@ -47,7 +47,11 @@
     			}		
     		}
 
-    		 function payment(){
+    		 function payment(remain){
+    			 if(remain==0){
+    				 alert("You have already paid all your bills, do not repeat payment!")
+    				 return false;
+    			 }
     			 var type=document.forms["myForm"]["card-type"].value;
     			 var name=document.forms["myForm"]["card-holder-name"].value;
     			 var number=document.forms["myForm"]["card-number"].value;
@@ -85,15 +89,17 @@
     				 document.getElementById("cvvError").innerHTML=""
     			 }
     			 var r = confirm("Are you willing to PAY THIS BILL?")
-    			 if(r==true)
+    			 if(r==true){
+    				 /* $('#alertSuccess').show(); */
     				 return true;
+    			 }			 
     			 else
     				 return false;
     		 }
-    		$('#myForm').on('submit', function(e){
-    			  $('#myModal').modal('show');
-    			  e.preventDefault();
-    			});
+    		 function checkPaid(remain){
+    			 if(remain==0)
+    			 	alert(remain);
+    		 }
     </script>
 
 <title>Payment Info</title>
@@ -142,24 +148,28 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 			<div class="container">
-	        		<div class="centered title"><h2>Checkout.</h2></div>
+	        		<div class="centered title"><h3>Checkout</h3></div>
 	        </div>
+	        
 			<div class="container">
-			  <form class="form-horizontal" action="pay.spring" method="post" onsubmit="return payment()" id="myForm" name="myForm">
+			  <form class="form-horizontal" action="pay.spring" method="post" onsubmit="return payment(${currBill.amount-currBill.paid})" id="myForm" name="myForm">
 			  
 			  <div>
 			  </div>
 			    <fieldset>
-			      <legend>Payment</legend>
+			      <h4>Payment</h4>
 			     			      
 			      <div class="form-group">
 			       <label class="col-sm control-label">Address: ${customer.street}, ${customer.city}, ${customer.state} ${customer.zip}</label><br>
 	      			<div class="col-md-4 selectContainer">
 	      			<select id="selectBox" onchange="selectedCard();" class="form-control selectpicker" style="width:300px">
 	      					<option value="">-------------Select a card-------------</option>
-    						<c:forEach var="card" items="${cardList}" >
+	      					<c:if test="${cardList!=null }">
+	      					<c:forEach var="card" items="${cardList}" >
     							<option value="${card.cardNo}:${card.name}:${card.type}">${card.type}************${card.cardNo.substring(card.cardNo.length()-4)}</option>
-    						</c:forEach>  					
+    							</c:forEach>  	
+	      					</c:if>
+    										
 				    </select>
 				    </div>
 				  </div>
@@ -235,7 +245,7 @@
 			      <div class="form-group">
 			        <div class="col-sm-offset-3 col-sm-9">
 			        
-			          <button type="submit" class="btn btn-success">Pay Now</button>&nbsp<a href="getMyBill.spring" type="button" class="btn">Cancel</a>
+			          <button type="submit" class="btn btn-success">Pay Now</button>&nbsp&nbsp&nbsp<a href="getMyBill.spring" type="button" class="btn" >Return</a>
 			        </div>
 			        <!-- <div id="thanks"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary">Contact us</a></p></div> -->
 			      </div>
@@ -258,55 +268,24 @@
               <span>Due: ${currBill.dueDate}</span>
             </div>
           </div>
-
+          <c:choose>
+          	<c:when test="${success!=null}">
+          		<div class="alert alert-success" id="alertSuccess">
+	  				<strong>Success!</strong> Payment succeed!
+				</div>
+          	</c:when>
+          	<c:when test="${currBill.amount==currBill.paid}">
+          		<div class="alert alert-warning" id="alserWarning">
+				    <strong>Warning!</strong> Do not repeat payment!
+				</div>
+          	</c:when>
+          </c:choose>
+			
         </div>
-
+		
       </div>
       <!-- /.row -->
 	</div>
-<!--  <div id="form-content" class="modal hide fade in" style="display: none; ">
-        <div class="modal-header">
-              <a class="close" data-dismiss="modal">×</a>
-              <h3>Contact us</h3>
-        </div>
-	<div>
-		<form class="contact">
-		<fieldset>
-	         <div class="modal-body">
-	        	 <ul class="nav nav-list">
-			<li class="nav-header">Name</li>
-			<li><input class="input-xlarge" value=" krizna" type="text" name="name"></li>
-			<li class="nav-header">Email</li>
-			<li><input class="input-xlarge" value=" user@krizna.com" type="text" name="Email"></li>
-			<li class="nav-header">Message</li>
-			<li><textarea class="input-xlarge" name="sug" rows="3"> Thanks for the article and demo
-			</textarea></li>
-			</ul> 
-	        </div>
-		</fieldset>
-		</form>
-	</div>
-     <div class="modal-footer">
-         <button class="btn btn-success" id="submit">submit</button>
-         <a href="#" class="btn" data-dismiss="modal">Close</a>
- 		</div>
-</div> -->
-<!-- <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>One fine body&hellip;</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>/.modal-content
-  </div>/.modal-dialog
-</div>/.modal -->
+
 </body>
 </html>

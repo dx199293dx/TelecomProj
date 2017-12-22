@@ -41,7 +41,7 @@ public interface Service {
 	public Bill currentBill(List<Bill> blist);
 	public ArrayList<CardInfo> getCardList(int cid);
 	public boolean saveCard(String type, String name, String cardNo, String month, String year, String code, int cid);
-	public void pay(Bill bill);
+	public String pay(Bill bill);
 
 
 }

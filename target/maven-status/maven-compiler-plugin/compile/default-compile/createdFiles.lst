@@ -27,4 +27,5 @@ beans/Issue_CustomerName.class
 intf/IssueDAO.class
 beans/CustomerPlan.class
 intf/EmployeeDAO.class
+beans/CustomerFieldCanBeNull.class
 beans/CardInfo.class

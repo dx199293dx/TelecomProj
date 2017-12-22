@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import beans.Bill;
 import beans.CardInfo;
@@ -19,6 +20,7 @@ import beans.PhonePlanDetails;
 
 
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -145,7 +147,9 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value="/paymentInfo")
-	public ModelAndView paymentInfo(HttpServletRequest request) {
+	public ModelAndView paymentInfo(HttpServletRequest request,RedirectAttributes ra,ModelMap model) {
+
+		model.addAttribute(model);
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		ArrayList<CardInfo> cardList = service.getCardList(c.getId());
 		return new ModelAndView("payment","cardList",cardList);
@@ -153,16 +157,18 @@ public class CustomerController {
 	@RequestMapping(value="/pay")
 	public String pay(@RequestParam("card-type") String type,@RequestParam("card-holder-name") String name, 
 			@RequestParam("card-number") String cardNo,@RequestParam("expiry-month") String month,@RequestParam("expiry-year") String year,
-			@RequestParam("cvv") String code,HttpServletRequest request) {
+			@RequestParam("cvv") String code,HttpServletRequest request,RedirectAttributes ra) {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		int cid = c.getId();
 		if(service.saveCard(type,name,cardNo,month,year,code,cid)) {
 			Bill bill = (Bill) request.getSession().getAttribute("currBill");
-			service.pay(bill);
-			return "redirect:/getMyBill.spring";
+			String success = service.pay(bill);
+
+			ra.addFlashAttribute("success",success);
+			return "redirect:/paymentInfo.spring";
 		}
 		return "payError";
-//		return "redirect:/getMyBill.spring";
+
 	}
 	@RequestMapping(value="editAccount")
 	public String editAccount() {
