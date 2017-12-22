@@ -15,15 +15,7 @@
         <!-- CUSTOM STYLES-->
      <spring:url value="/resources/css/blog-home.css" var="blogHome" />
     <link href="${blogHome}" rel="stylesheet" />
-    
-    <!--  script  -->
-	<%--     <spring:url value="/resources/js/jquery.min.js" var="jquery" />
-    <script src="${jquery}"></script>
-    
-    <spring:url value="/resources/js/bootstrap.bundle.min.js" var="bootstrap.bundle.min.js" />
-    <script src="${bootstrap.bundle.min.js}"></script>
-    --%>
-    <spring:url value="/resources/image/tel.png" var="tel" />
+
 <title>Customer Homepage</title>
 </head>
 <body>
@@ -51,7 +43,7 @@
               <a class="nav-link" href="getMyPlan.spring">Plan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Customer Service</a>
+              <a class="nav-link" href="fillIssueForm.spring">Customer Service</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="customerLogout.spring">Logout</a>

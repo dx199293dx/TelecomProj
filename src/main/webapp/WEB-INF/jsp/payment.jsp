@@ -120,16 +120,16 @@
               </a>
             </li>
             <li class="nav-item" >
-              <a class="nav-link" href="getMyBill.spring">Bill</a>
+              <a class="nav-link active" href="getMyBill.spring">Bill</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="getMyPlan.spring">Plan
               <span class="sr-only">(current)</span>
               </a>
               
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Customer Service</a>
+              <a class="nav-link" href="fillIssueForm.spring">Customer Service</a>
             </li>
             
             <li class="nav-item">
@@ -245,7 +245,7 @@
 			      <div class="form-group">
 			        <div class="col-sm-offset-3 col-sm-9">
 			        
-			          <button type="submit" class="btn btn-success">Pay Now</button>&nbsp&nbsp&nbsp<a href="getMyBill.spring" type="button" class="btn" >Return</a>
+			          <button type="submit" class="btn btn-success">Pay Now</button>&nbsp&nbsp&nbsp<a href="getMyBill.spring" type="button" class="btn btn-warning" >Return</a>
 			        </div>
 			        <!-- <div id="thanks"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary">Contact us</a></p></div> -->
 			      </div>

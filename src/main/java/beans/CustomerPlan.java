@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="cus_plan")
@@ -15,8 +16,11 @@ public class CustomerPlan {
 	private int id;
 	private int cid;
 	private int pid;
+	@NotNull(message="Please input first name")
 	private String firstName;
+	@NotNull(message="Please input last name")
 	private String lastName;
+	@NotNull(message="Please input service number")
 	private String number;
 	public CustomerPlan(int id, int cid, int pid, String firstName, String lastName, String number) {
 		super();

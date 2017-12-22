@@ -155,6 +155,7 @@
 	  <form:input path="number" placeholder="Number" class="form-control"  type="text"/>
     </div>    
   </div>
+  <form:errors path="number" cssClass="error"/>
 </div>
 
 <!-- Text input-->

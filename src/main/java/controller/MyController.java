@@ -89,14 +89,22 @@ public class MyController {
 			return new ModelAndView("addAdmin");
 		}else{
 			myService.addEmployee(e);
-			return new ModelAndView("success");
+			return new ModelAndView("addAdmin","success","success");
 		}
 	}	
 	@RequestMapping(value="/createNewCP",method=RequestMethod.POST)
-	public String createNew(CustomerPlan cp) {//@ModelAttribute("newCP") 
+	public ModelAndView createNew(@ModelAttribute("newCP") @Validated CustomerPlan cp, BindingResult bindingResult) {
+		System.out.println("here in handler");
 		//we can change return type to get the new customer plan and display on the web
-		myService.addCustomerPlan(cp);
-		return "success";
+		if(bindingResult.hasErrors()) {
+//			model.addAttribute("newCP",new CustomerPlan());
+//			return new ModelAndView("redirect:createNewService","planList", myService.getPlanList());
+			return new ModelAndView("createNewService");
+		}else {
+			myService.addCustomerPlan(cp);
+			return new ModelAndView("success");
+		}
+		
 	}
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/customerFilter", method=RequestMethod.POST)
@@ -142,6 +150,7 @@ public class MyController {
 	public String admin() {
 		return "adminLogin";
 	}
+
 //	@ModelAttribute("newCP")
 //	public CustomerPlan createCustomerPlanModel() {
 //		return new CustomerPlan();	

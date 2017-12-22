@@ -391,6 +391,21 @@ public class ServiceImpl implements Service {
 		return "success";
 	}
 
+	@Override
+	@Transactional
+	public String submitIssue(Customer c, String type, String subtype, String message) {
+		// TODO Auto-generated method stub
+		int cid = c.getId();
+		Issue i = new Issue();
+		i.setCid(cid);
+		i.setType(type);
+		i.setSubType(subtype);
+		i.setDetails(message);
+		i.setStatus("New");
+		issueDao.addIssue(i);
+		return "success";
+	}
+
 	
 
 }

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import beans.Bill;
 import beans.CardInfo;
 import beans.Customer;
+import beans.Issue;
 import beans.PhonePlanDetails;
 
 import org.springframework.ui.Model;
@@ -172,5 +173,20 @@ public class CustomerController {
 	@RequestMapping(value="editAccount")
 	public String editAccount() {
 		return "success";
+	}
+	
+	
+	@RequestMapping(value="/fillIssueForm")
+	public ModelAndView fillIssueForm() {
+		return new ModelAndView("issueForm","issue",new Issue());
+	}
+	
+	@RequestMapping(value="/submitIssue")
+	public ModelAndView submitIssue(@RequestParam("type") String type, @RequestParam("subtype") String subtype,@RequestParam("message") String message,
+									HttpServletRequest request) {
+		Customer c = (Customer) request.getSession().getAttribute("customer");
+		String success = service.submitIssue(c,type,subtype,message);
+		return new ModelAndView("issueForm","success",success);
+		
 	}
 }

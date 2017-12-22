@@ -1,5 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <html>
 <head>
 	<!-- BOOTSTRAP STYLES-->
@@ -18,9 +19,21 @@
 	<!-- form js -->
 	<spring:url value="/resources/js/adminReg.js" var="adminReg" />
 	<script src="${adminReg}"></script>
-	<style>
+<!-- 	<style>
 		#success_message{ display: none;}
-	</style>
+	</style> -->
+	<script type="text/javascript">
+		function verifyPass(){
+			var pass = document.getElementById("password").value;
+			var repass = document.getElementById("confirm_password").value;
+			if(pass!=repass){
+				document.getElementById("conPassError").innerHTML = "Please retype the correct password!"
+				return false;
+			}else{
+				return true;
+			}
+		}
+	</script>
 </head>
 <body>
  <div id="wrapper">
@@ -92,7 +105,7 @@
                     
              <div class="form_container">
 
-    <form:form class="well form-horizontal" action="adminReg.spring" method="post"  id="contact_form" modelAttribute="newAdmin">
+    <form:form class="well form-horizontal" onsubmit="return verifyPass()" action="adminReg.spring" method="post"  id="contact_form" modelAttribute="newAdmin">
 <fieldset>
 
 <!-- Form Name -->
@@ -145,20 +158,23 @@
     <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
   <input id="confirm_password" name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
-  <p id="conPassError" style="color:red;"></p>
     </div>
   </div>
+  <span id="conPassError" style="color:red;"></span>
 </div>
 
 
 <!-- Success message -->
-<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+<c:if test="${success!=null}">
+	<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+</c:if>
+
 
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4"><br>
-    <center><button type="submit" class="btn btn-warning" onclick = "varifyConfirmPass()"> SUBMIT <span class="glyphicon glyphicon-send"></span></button></center>
+    <center><button type="submit" class="btn btn-warning" > SUBMIT <span class="glyphicon glyphicon-send"></span></button></center>
   </div>
 </div>
 

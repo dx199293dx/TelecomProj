@@ -42,6 +42,7 @@ public interface Service {
 	public ArrayList<CardInfo> getCardList(int cid);
 	public boolean saveCard(String type, String name, String cardNo, String month, String year, String code, int cid);
 	public String pay(Bill bill);
+	public String submitIssue(Customer c, String type, String subtype, String message);
 
 
 }
