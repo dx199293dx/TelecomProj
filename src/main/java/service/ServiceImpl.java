@@ -390,6 +390,22 @@ public class ServiceImpl implements Service {
 		billDao.updateBill(bill);
 	}
 
+	@Override
+	@Transactional
+	public Customer modifyCustomer(Customer c, String email, String phone, String street, String city, String state,
+			String zip) {
+		// TODO Auto-generated method stub
+		c.setEmail(email);
+		c.setPhone(phone);
+		c.setStreet(street);
+		c.setCity(city);
+		c.setState(state);
+		c.setZip(zip);
+		customerDao.updateCustomer(c);
+		return c;
+	}
+
+	
 	
 
 }

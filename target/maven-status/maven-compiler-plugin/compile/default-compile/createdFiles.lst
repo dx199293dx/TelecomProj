@@ -22,6 +22,7 @@ beans\Customer.class
 intf\CustomerDAO.class
 dao\CustomerDAOImpl.class
 intf\Service.class
+beans\CustomerFieldCanBeNull.class
 beans\CardInfo.class
 intf\IssueDAO.class
 beans\Plan.class

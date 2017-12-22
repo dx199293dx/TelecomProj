@@ -30,14 +30,6 @@ public class CustomerController {
 	@Autowired
 	private Service service;
 
-	// @RequestMapping(value = "/customer")
-	// public String customer(HttpServletRequest request) {
-	// Customer c = service.getCustomerList().get(0);//need to be changed, read the
-	// customer from seesion scope
-	// request.getSession().setAttribute("customer", c);
-	// System.out.println(c.getId());
-	// return "customerHomepage";
-	// }
 	@RequestMapping(value = "/getMyPlan")
 	public ModelAndView getMyPlan(HttpServletRequest request) {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
@@ -129,12 +121,6 @@ public class CustomerController {
 
 	}
 
-	@RequestMapping(value = "/myAccount")
-	public String displayAccount() {
-
-		return "customerAccount";
-	}
-
 	@RequestMapping(value = "/customerLogout")
 	public ModelAndView custLogout(HttpServletRequest request) {
 		request.getSession().setAttribute("customer", null);
@@ -167,8 +153,25 @@ public class CustomerController {
 		return "payError";
 		// return "redirect:/getMyBill.spring";
 	}
-	@RequestMapping(value="editAccount")
+
+	@RequestMapping(value = "/myAccount")
+	public String displayAccount() {
+
+		return "customerAccount";
+	}
+
+	@RequestMapping(value = "/editAccount")
 	public String editAccount() {
-		return "success";
+		return "editAccountDetails";
+	}
+
+	@RequestMapping(value="/changeAccount", method=RequestMethod.POST)
+	public String changeAccount(@RequestParam("email") String email, @RequestParam("phone") String phone, @RequestParam("street") String street,
+			@RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("zip") String zip, HttpServletRequest request) {
+		System.out.println(email);
+		Customer c = (Customer) request.getSession().getAttribute("customer");
+		service.modifyCustomer(c, email, phone, street, city, state, zip);
+		return "redirect:/myAccount.spring";
+		
 	}
 }
