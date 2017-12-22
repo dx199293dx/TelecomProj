@@ -36,13 +36,16 @@ public interface Service {
 	public Customer registrationVal(String servicenumber, String firstName, String lastName);
 	public void addCustomer(CustomerFieldCanBeNull c);
 	public void saveCustomer(Customer c);
-	
+	public Customer modifyCustomer(Customer c, String email, String phone, String street, String city, String state, String zip);
+
 	public List<Bill> getmyBill(String servicenumber);
 	public Bill currentBill(List<Bill> blist);
 	public ArrayList<CardInfo> getCardList(int cid);
 	public boolean saveCard(String type, String name, String cardNo, String month, String year, String code, int cid);
+
 	public String pay(Bill bill);
 	public String submitIssue(Customer c, String type, String subtype, String message);
+
 
 
 }
