@@ -124,12 +124,6 @@ public class CustomerController {
 
 	}
 
-	@RequestMapping(value = "/myAccount")
-	public String displayAccount() {
-
-		return "customerAccount";
-	}
-
 	@RequestMapping(value = "/customerLogout")
 	public ModelAndView custLogout(HttpServletRequest request) {
 		request.getSession().setAttribute("customer", null);
@@ -169,8 +163,25 @@ public class CustomerController {
 		return "payError";
 
 	}
-	@RequestMapping(value="editAccount")
+
+	@RequestMapping(value = "/myAccount")
+	public String displayAccount() {
+
+		return "customerAccount";
+	}
+
+	@RequestMapping(value = "/editAccount")
 	public String editAccount() {
-		return "success";
+		return "editAccountDetails";
+	}
+
+	@RequestMapping(value="/changeAccount", method=RequestMethod.POST)
+	public String changeAccount(@RequestParam("email") String email, @RequestParam("phone") String phone, @RequestParam("street") String street,
+			@RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("zip") String zip, HttpServletRequest request) {
+		System.out.println(email);
+		Customer c = (Customer) request.getSession().getAttribute("customer");
+		service.modifyCustomer(c, email, phone, street, city, state, zip);
+		return "redirect:/myAccount.spring";
+		
 	}
 }
