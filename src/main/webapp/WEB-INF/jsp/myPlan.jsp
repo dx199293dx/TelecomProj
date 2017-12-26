@@ -147,9 +147,8 @@
 
         </div>
   </div>
-        <!-- Sidebar Widgets Column -->
-        <div class="col-md-4">
         
+
           <!-- Categories Widget -->
           <div class="card my-4">
             <h5 class="card-header">Quick Link</h5>
@@ -194,6 +193,7 @@
           </div>
 
         </div>
+
 
       </div>
       <!-- /.row -->
