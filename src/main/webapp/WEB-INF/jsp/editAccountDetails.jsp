@@ -79,7 +79,7 @@
 		<div class="row">
 
 			<!-- Blog Entries Column -->
-			<div class="col-md-8">
+			<div class="col-md-12">
 
 				<!-- <h1 class="my-4">Page Heading
             <small>Secondary Text</small>
@@ -154,7 +154,7 @@
 															<tr>
 																<td>State:</td>
 																<td><input type="text" name="state" id="edit4"
-																	value="${customer.city}" placeholder="State"></td>
+																	value="${customer.state}" placeholder="State"></td>
 
 															</tr>
 															<tr>

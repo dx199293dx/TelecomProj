@@ -59,14 +59,10 @@ public class CustomerController {
 	public ModelAndView getMyBill(HttpServletRequest request, Model model) {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		ArrayList<Bill> bill = (ArrayList<Bill>) service.getmyBill(c.getServicenumber());
-		Bill currentBill = service.currentBill(bill);
+//		Bill currentBill = service.currentBill(bill);
 		// model.addAttribute("currBill",currentBill);
-		request.getSession().setAttribute("currBill", currentBill);
-		System.out.println(currentBill.getStartDate());
-		System.out.println(currentBill.getEndDate());
-		System.out.println(currentBill.getDueDate());
-		System.out.println(currentBill.getAmount());
-		model.addAttribute("currBill", currentBill);
+//		request.getSession().setAttribute("currBill", currentBill);
+//		model.addAttribute("currBill", currentBill);
 		return new ModelAndView("myBill", "myBill", bill);
 	}
 
@@ -80,9 +76,12 @@ public class CustomerController {
 			HttpServletRequest request) {
 		Customer c = service.custLogin(userID, password);
 		if (c.getId() == 0) {
-			return new ModelAndView("error");
+			return new ModelAndView("customerLogin","success","no");
 		} else {
 			request.getSession().setAttribute("customer", c);
+			ArrayList<Bill> bill = (ArrayList<Bill>) service.getmyBill(c.getServicenumber());
+			Bill currentBill = service.currentBill(bill);
+			request.getSession().setAttribute("currBill", currentBill);
 			return new ModelAndView("customerHomepage");
 		}
 	}

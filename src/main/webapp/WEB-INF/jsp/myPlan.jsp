@@ -149,6 +149,52 @@
   </div>
         
 
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Quick Link</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Quick Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#">Quick Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#">Quick Link 3</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Quick Link 4</a>
+                    </li>
+                    <li>
+                      <a href="#">Quick Link 5</a>
+                    </li>
+                    <li>
+                      <a href="#">Quick Link 6</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Alert</h5>
+            <div class="card-body">
+              You can put any alert message in this area!
+            </div>
+          </div>
+
+        </div>
+
+
       </div>
       <!-- /.row -->
   </div>

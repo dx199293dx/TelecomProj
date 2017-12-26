@@ -253,7 +253,7 @@
 			  </form>
 			</div>
           
-		</div>
+		</div><!-- col-md-8 -->
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
        

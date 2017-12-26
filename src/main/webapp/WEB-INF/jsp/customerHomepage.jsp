@@ -94,36 +94,20 @@
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
 
-          <!-- Search Widget -->
-          <!-- <div class="card my-4">
-            <h5 class="card-header">Search</h5>
-            <div class="card-body">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Categories Widget -->
+          <!-- Side Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Payment</h5>
+
+            <h5 class="card-header">Payment Amount</h5>
             <div class="card-body">
-              <span class="price-value" style="color:#0e049b;"><i class="fa fa-usd"></i><span style="color:#0e049b;">${currBill.paid}</span></span>&nbsp&nbsp&nbsp<span>Paid</span><br><br>
+            
+             <span class="price-value" style="color:#0e049b;"><i class="fa fa-usd"></i><span style="color:#0e049b;">${currBill.paid}</span></span>&nbsp&nbsp&nbsp<span>Paid</span><br><br>
               <span class="price-value" style="color:#0e049b;"><i class="fa fa-usd"></i><span style="color:#0e049b;">${currBill.amount-currBill.paid}</span></span>&nbsp&nbsp<span>Remain</span><br><br>
               <span>Due: ${currBill.dueDate}</span>
             </div>
           </div>
 
-          <!-- Side Widget -->
-          <!-- <div class="card my-4">
-            <h5 class="card-header">Side Widget</h5>
-            <div class="card-body">
-              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-            </div>
-          </div> -->
+
+          
 
         </div>
 

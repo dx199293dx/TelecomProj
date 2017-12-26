@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,6 +26,13 @@
 				<a href="#">Lost your password?</a>
 			</div>
 		</form><!-- form -->
+		<c:choose>
+          	<c:when test="${success=='no'}">
+          		<div class="alert alert-danger" id="alertFailed">
+	  				<strong>Failed!</strong> Please Check Your User ID and Password Again!
+				</div>
+          	</c:when>
+         </c:choose>
 		<div class="button">
 			<a href="serNumber.spring">Register</a>
 		</div><!-- button -->
