@@ -15,6 +15,8 @@
         <!-- CUSTOM STYLES-->
      <spring:url value="/resources/css/blog-home.css" var="blogHome" />
     <link href="${blogHome}" rel="stylesheet" />
+    
+    <spring:url value="/resources/image/tel.png" var="tel" />
 
 <title>Customer Homepage</title>
 </head>
@@ -62,33 +64,30 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Welcome..!!
-            <small>${customer.firstName}</small> <small>${customer.lastName}</small>
+          <h1 class="my-4">Welcome
+            ${customer.firstName} ${customer.lastName}
           </h1>
 
           <!-- Blog Post -->
           <div class="card mb-4">
             <img class="card-img-top" src="${tel}" alt="Card image cap">
-            <div class="card-body">
-              <h2 class="card-title">Current Plan & Bill</h2>
-              <p class="card-text">empty for now</p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
-            </div>
+            
             <div class="card-footer text-muted">
               
-              <a href="#">Start Bootstrap</a>
+              <a href="#">Telecom services</a>
             </div>
           </div>
 
           <!-- Pagination -->
-          <ul class="pagination justify-content-center mb-4">
+          
+          <!-- <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
               <a class="page-link" href="#">&larr; Older</a>
             </li>
             <li class="page-item disabled">
               <a class="page-link" href="#">Newer &rarr;</a>
             </li>
-          </ul>
+          </ul> -->
 
         </div>
 
@@ -110,36 +109,11 @@
 
           <!-- Categories Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Alert..!!</h5>
+            <h5 class="card-header">Payment</h5>
             <div class="card-body">
-              <div class="row">
-                <!-- <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">Web Design</a>
-                    </li>
-                    <li>
-                      <a href="#">HTML</a>
-                    </li>
-                    <li>
-                      <a href="#">Freebies</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">JavaScript</a>
-                    </li>
-                    <li>
-                      <a href="#">CSS</a>
-                    </li>
-                    <li>
-                      <a href="#">Tutorials</a>
-                    </li>
-                  </ul>
-                </div> -->
-              </div>
+              <span class="price-value" style="color:#0e049b;"><i class="fa fa-usd"></i><span style="color:#0e049b;">${currBill.paid}</span></span>&nbsp&nbsp&nbsp<span>Paid</span><br><br>
+              <span class="price-value" style="color:#0e049b;"><i class="fa fa-usd"></i><span style="color:#0e049b;">${currBill.amount-currBill.paid}</span></span>&nbsp&nbsp<span>Remain</span><br><br>
+              <span>Due: ${currBill.dueDate}</span>
             </div>
           </div>
 
