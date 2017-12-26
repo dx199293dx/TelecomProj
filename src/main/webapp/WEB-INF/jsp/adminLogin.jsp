@@ -1,8 +1,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 	<spring:url value="/resources/css/adminLogin.css" var="adminLoginCss" />
 	<link href="${adminLoginCss}" rel="stylesheet" />
+	
 
 </head>
 <body>
@@ -22,6 +24,13 @@
 				<a href="#">Lost your password?</a>
 			</div>
 		</form><!-- form -->
+		<c:choose>
+          	<c:when test="${success=='no'}">
+          		<div class="alert alert-danger" id="alertFailed">
+	  				<strong>Failed!</strong> Please Check Your User ID and Password Again!
+				</div>
+          	</c:when>
+         </c:choose>
 		<div class="button">
 			<a href="#">Telecom Home Page</a>
 		</div><!-- button -->

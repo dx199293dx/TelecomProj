@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- BOOTSTRAP STYLES-->
+	<!-- BOOTSTRAP STYLES-->
     <spring:url value="/resources/css/adminHomeBootstrap.css" var="adminHomeBootstrapCss" />
     <link href="${adminHomeBootstrapCss}" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -102,6 +102,18 @@
 
 <!-- Form Name -->
 <legend><center><h2><b>New Customer&Service Form</b></h2></center></legend><br>
+		<c:choose>
+          	<c:when test="${success=='success'}">
+          		<div class="alert alert-success" id="alertSuccess">
+	  				<strong>Success!</strong> New Customer Added Successful!
+				</div>
+          	</c:when>
+          	<%-- <c:when test="${currBill.amount==currBill.paid}">
+          		<div class="alert alert-warning" id="alserWarning">
+				    <strong>Warning!</strong> Do not repeat payment!
+				</div>
+          	</c:when> --%>
+          </c:choose>
 
 <!-- Select Plan -->
 <div class="form-group"> 
@@ -178,7 +190,7 @@
 </div>        
 </div>
 
-		<script src="http://code.jquery.com/jquery.js"></script>
+		<!-- <script src="http://code.jquery.com/jquery.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
         <script>
@@ -188,6 +200,6 @@
                 $('#modal').modal('show');
                 e.preventDefault();
             });
-        </script>
+        </script> -->
 </body>
 </html>

@@ -44,7 +44,7 @@ public class MyController {
 			HttpServletRequest request){
 		Employee e = myService.employeeLogin(userID, password);	
 		if(e.getId()==0) {
-			return new ModelAndView("error");
+			return new ModelAndView("adminLogin","success","no");
 		}else {
 			request.getSession().setAttribute("employee", e);
 			return new ModelAndView("adminHomepage");
@@ -102,7 +102,7 @@ public class MyController {
 			return new ModelAndView("createNewService");
 		}else {
 			myService.addCustomerPlan(cp);
-			return new ModelAndView("success");
+			return new ModelAndView("createNewService","success","success");
 		}
 		
 	}
