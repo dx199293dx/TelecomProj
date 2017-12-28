@@ -59,10 +59,7 @@ public class CustomerController {
 	public ModelAndView getMyBill(HttpServletRequest request, Model model) {
 		Customer c = (Customer) request.getSession().getAttribute("customer");
 		ArrayList<Bill> bill = (ArrayList<Bill>) service.getmyBill(c.getServicenumber());
-//		Bill currentBill = service.currentBill(bill);
-		// model.addAttribute("currBill",currentBill);
-//		request.getSession().setAttribute("currBill", currentBill);
-//		model.addAttribute("currBill", currentBill);
+
 		return new ModelAndView("myBill", "myBill", bill);
 	}
 

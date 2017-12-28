@@ -211,7 +211,6 @@ public class ServiceImpl implements Service {
 		ppd.setText(detail[0].substring(5));
 		ppd.setVoice(detail[1].substring(6));
 		ppd.setData(detail[2].substring(5));
-		System.out.println(ppd);
 		
 		return ppd;
 	}
