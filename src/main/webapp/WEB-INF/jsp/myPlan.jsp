@@ -150,6 +150,7 @@
         
 
           <!-- Categories Widget -->
+          <div class="col-md-4">
           <div class="card my-4">
             <h5 class="card-header">Quick Link</h5>
             <div class="card-body">
@@ -157,17 +158,17 @@
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">Quick Link 1</a>
+                      <a href="myAccount.spring">My Account</a>
                     </li>
                     <li>
-                      <a href="#">Quick Link 2</a>
+                      <a href="getMyBill.spring">My Bill</a>
                     </li>
                     <li>
-                      <a href="#">Quick Link 3</a>
+                      <a href="fillIssueForm.spring">Report Issue</a>
                     </li>
                   </ul>
                 </div>
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
                       <a href="#">Quick Link 4</a>
@@ -179,7 +180,7 @@
                       <a href="#">Quick Link 6</a>
                     </li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -188,7 +189,9 @@
           <div class="card my-4">
             <h5 class="card-header">Alert</h5>
             <div class="card-body">
-              You can put any alert message in this area!
+            
+              <p>Your due date is within <b>${remainingDays}</b> days</p>
+              <p>Due Date: ${currBill.dueDate}</p>
             </div>
           </div>
 
