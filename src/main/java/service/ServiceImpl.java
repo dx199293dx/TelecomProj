@@ -1,5 +1,6 @@
 package service;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -419,6 +420,12 @@ public class ServiceImpl implements Service {
 		c.setZip(zip);
 		customerDao.updateCustomer(c);
 		return c;
+	}
+
+	@Override
+	public String remainingDays(String s) throws ParseException {
+		// TODO Auto-generated method stub
+		return DateUtils.dateDifference(s);
 	}
 
 	

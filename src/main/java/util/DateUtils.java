@@ -1,5 +1,10 @@
 package util;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class DateUtils {
 
 	public static boolean greaterThan(String date1, String date2) {
@@ -25,6 +30,17 @@ public class DateUtils {
 			}
 		}
 
+	}
+	
+	public static String dateDifference(String s1) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+
+			Date currdate = sdf.parse(sdf.format(new Date()));
+			Date ddate = sdf.parse(s1+" 23:59:59");
+			Long days = (ddate.getTime()-currdate.getTime())/1000/24/3600;
+			String s = days.toString();
+			System.out.println(s);
+		return s;
 	}
 
 }

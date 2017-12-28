@@ -1,5 +1,6 @@
 package intf;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +46,7 @@ public interface Service {
 
 	public String pay(Bill bill);
 	public String submitIssue(Customer c, String type, String subtype, String message);
-
+	public String remainingDays(String s) throws ParseException;
 
 
 }

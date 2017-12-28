@@ -1,5 +1,6 @@
 package controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +71,7 @@ public class CustomerController {
 
 	@RequestMapping(value = "/customerLogin")
 	public ModelAndView custLogin(@RequestParam("userID") String userID, @RequestParam("password") String password,
-			HttpServletRequest request) {
+			HttpServletRequest request) throws ParseException {
 		Customer c = service.custLogin(userID, password);
 		if (c.getId() == 0) {
 			return new ModelAndView("customerLogin","success","no");
@@ -79,6 +80,10 @@ public class CustomerController {
 			ArrayList<Bill> bill = (ArrayList<Bill>) service.getmyBill(c.getServicenumber());
 			Bill currentBill = service.currentBill(bill);
 			request.getSession().setAttribute("currBill", currentBill);
+			String remDays = service.remainingDays(currentBill.getDueDate());
+			request.getSession().setAttribute("remainingDays", remDays);
+			PhonePlanDetails ppd = service.getMyPlan(c.getId());
+			request.getSession().setAttribute("myPlan", ppd);
 			return new ModelAndView("customerHomepage");
 		}
 	}
