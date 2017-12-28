@@ -87,14 +87,14 @@
 		            <div class="col-md-6">
 		                <div class="form-group">
 		                    <label for="form_name">Device Type*</label>
-		                    <input id="form_name" type="text" name="type" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+		                    <input id="form_name" type="text" name="type" class="form-control" placeholder="Please enter your device type *" required="required" data-error="Device type is required.">
 		                    <div class="help-block with-errors"></div>
 		                </div>
 		            </div>
 		            <div class="col-md-6">
 		                <div class="form-group">
 		                    <label for="form_lastname">Issue Type*</label>
-		                    <input id="form_lastname" type="text" name="subtype" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+		                    <input id="form_lastname" type="text" name="subtype" class="form-control" placeholder="Please enter your issue type *" required="required" data-error="Issue type is required.">
 		                    <div class="help-block with-errors"></div>
 		                </div>
 		            </div>
@@ -103,7 +103,7 @@
 		            <div class="col-md-6">
 		                <div class="form-group">
 		                    <label for="form_email">Email</label>
-		                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+		                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email" data-error="Valid email is required.">
 		                    <div class="help-block with-errors"></div>
 		                </div>
 		            </div>
@@ -119,7 +119,7 @@
 		            <div class="col-md-12">
 		                <div class="form-group">
 		                    <label for="form_message">Message *</label>
-		                    <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+		                    <textarea id="form_message" name="message" class="form-control" placeholder="Your Issue Here *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
 		                    <div class="help-block with-errors"></div>
 		                </div>
 		            </div>

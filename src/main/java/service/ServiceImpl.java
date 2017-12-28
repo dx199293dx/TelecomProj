@@ -246,7 +246,8 @@ public class ServiceImpl implements Service {
 				return c;
 			}
 		}
-		return new Customer();
+//		return new Customer();
+		return null;
 	}
 
 

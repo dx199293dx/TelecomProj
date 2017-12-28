@@ -16,10 +16,10 @@
 		<form name="customerLogin" method="post" action="customerLogin.spring">
 			<h1> Customer Login</h1>
 			<div>
-				<input type="text" placeholder="User ID" name="userID" id="userID" />
+				<input type="text" placeholder="User ID" name="userID" id="userID" required="required"/>
 			</div>
 			<div>
-				<input type="password" placeholder="Password" name="password" id="password" />
+				<input type="password" placeholder="Password" name="password" id="password" required="required"/>
 			</div>
 			<div>
 				<input type="submit" value="Log in" />
@@ -28,7 +28,7 @@
 		</form><!-- form -->
 		<c:choose>
           	<c:when test="${success=='no'}">
-          		<div class="alert alert-danger" id="alertFailed">
+          		<div class="alert alert-danger" id="alertFailed" style="color:red">
 	  				<strong>Failed!</strong> Please Check Your User ID and Password Again!
 				</div>
           	</c:when>

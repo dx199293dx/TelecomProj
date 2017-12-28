@@ -77,7 +77,7 @@
     				 document.getElementById("numberError").innerHTML=""
     			 }
     			 if(month==""||year==""){
-    				 document.getElementById("dateError").innerHTML="Selectthe expire date"
+    				 document.getElementById("dateError").innerHTML="Select the expire date"
     				 return false;
     			 }else{
     				 document.getElementById("dateError").innerHTML=""

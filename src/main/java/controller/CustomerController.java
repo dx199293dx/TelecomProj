@@ -98,15 +98,22 @@ public class CustomerController {
 	public ModelAndView regValidate(@RequestParam("servicenumber") String servicenumber,
 			@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
 			HttpServletRequest request, Model model) {
-		Customer customer = service.registrationVal(servicenumber, firstName, lastName);
-		// System.out.println(customer.getId());
-		if (customer == null)// !customer.getServicenumber().equals(servicenumber))
-		{
-			return new ModelAndView("error");
-		} else {
-			request.getSession().setAttribute("customer", customer);
-			return new ModelAndView("registerCustomer", "newCustomer", customer);
+		String s = request.getParameter("submit");
+		if(s.equals("submit")) {
+			Customer customer = service.registrationVal(servicenumber, firstName, lastName);
+			// System.out.println(customer.getId());
+			if (customer == null)// !customer.getServicenumber().equals(servicenumber))
+			{
+				return new ModelAndView("registerCustomerValidate","success","no");
+			} else {
+				request.getSession().setAttribute("customer", customer);
+				return new ModelAndView("registerCustomer", "newCustomer", customer);
+			}
 		}
+		else {
+			return new ModelAndView("redirect:/customer.spring");
+		}
+		
 	}
 
 	@RequestMapping(value = "/registerCustomer")

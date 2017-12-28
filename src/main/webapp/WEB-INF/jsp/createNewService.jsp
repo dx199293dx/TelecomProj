@@ -121,7 +121,7 @@
     <div class="col-md-4 selectContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-    <form:select path="pid" name="plan" class="form-control selectpicker">
+    <form:select path="pid" name="plan" class="form-control selectpicker" required="required">
       <option value="">------Select Plan-------</option>
       <form:options items="${planList}" itemValue="id" itemLabel="name"></form:options>
       <option>###</option>
@@ -138,7 +138,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <form:input  path="firstName" placeholder="First Name" class="form-control"  type="text"/>
+  <form:input  path="firstName" placeholder="First Name" class="form-control"  type="text" required="required"/>
     </div>
   </div>
     <form:errors path="firstName" cssClass="error"/>
@@ -151,7 +151,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <form:input  path="lastName" placeholder="Last Name" class="form-control"  type="text"/> 
+  <form:input  path="lastName" placeholder="Last Name" class="form-control"  type="text" required="required"/> 
   </div>
   </div>
   <form:errors path="lastName" cssClass="error"/>
@@ -164,7 +164,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
 	  <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-	  <form:input path="number" placeholder="Number" class="form-control"  type="text"/>
+	  <form:input path="number" placeholder="Number" class="form-control"  type="text" required="required"/>
     </div>    
   </div>
   <form:errors path="number" cssClass="error"/>
